@@ -1,0 +1,169 @@
+/* 폰트 */
+@font-face {
+	font-family: 'LotteMartDream';
+	font-style: normal;
+	font-weight: 400;
+	src:
+		url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamMedium.woff2')
+		format('woff2'),
+		url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamMedium.woff')
+		format('woff');
+}
+
+@font-face {
+	font-family: 'LotteMartDream';
+	font-style: normal;
+	font-weight: 700;
+	src:
+		url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamBold.woff2')
+		format('woff2'),
+		url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamBold.woff')
+		format('woff');
+}
+
+@font-face {
+	font-family: 'LotteMartDream';
+	font-style: normal;
+	font-weight: 300;
+	src:
+		url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamLight.woff2')
+		format('woff2'),
+		url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamLight.woff')
+		format('woff');
+}
+
+.lottemartdream * {
+	font-family: 'LotteMartDream', sans-serif;
+}
+
+html>body {
+	font-family: 'LotteMartDream', sans-serif;
+}
+
+/* 라이브러리 */
+
+/* 커스텀 */
+header>div>ul>li {
+	margin-right: 30px;
+}
+
+/* .login-box>tbody>tr>td>input { */
+/* 	padding-left: 10px; */
+/* } */
+
+/* .login-box>tbody>tr:nth-child(3)>td>input { */
+/* 	padding-left: 0; */
+/* } */
+
+/* .join-box>tbody>tr:nth-child(7)>td>input { */
+/* 	padding-left: 0; */
+/* } */
+
+/* .modify-box>tbody>tr:nth-child(5)>td>input, .modify-box>tbody>tr:nth-child(6)>td>input, */
+/* 	.modify-box>tbody>tr:nth-child(7)>td>input { */
+/* } */
+.table-box-1 th, .table-box-1 td {
+	border: 1px solid black;
+	padding: 10px;
+	text-align: center;
+}
+
+/*네비게이션 2차메뉴 */
+header>div>ul>li>ul {
+	display: none;
+	position: absolute;
+	background-color: white;
+}
+
+header>div>ul>li:hover>ul {
+	display: block;
+}
+
+html, body {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	width: 100%;
+	height: 100%;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* main jsp css*/
+
+/* 메인 로고 이미지 css*/
+.main-logo-img {
+	width: 300px;
+	height: 300px;
+	position: absolute;
+	left: -0.5px;
+	top: 160px;
+	object-fit: cover;
+	opacity: 0.9;
+}
+
+/* 로고 문자 Dream diary에 밑줄 위치 css*/
+.main-logo-writing-underline1 {
+	width: 400px;
+	height: 5px;
+	fill: none;
+	position: absolute;
+	left: 405.5px;
+	top: 333.5px;
+}
+
+.main-logo-writing-underline2 {
+	width: 468px;
+	height: 6px;
+	fill: none;
+	position: absolute;
+	left: 407.5px;
+	top: 422.5px;
+	position: absolute
+}
+/* 로그인 외곽 프레임 위치 css */
+.login-border-frame-location {
+	flex-grow: 0;
+	flex-shrink: 0;
+	width: 978px;
+	height: 401px;
+}
+
+.login-main-frame {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	position: absolute;
+	left: 33px;
+	top: 169px;
+	gap: 125px;
+}
+/* 로고 문자 위치 css*/
+.main-logo-writing1 {
+	width: 473px;
+	position: absolute;
+	left: 405px;
+	top: 238.5px;
+	font-size: 70px;
+	text-align: left;
+	color: #fff;
+}
+
+.main-logo-writing2 {
+	position: absolute;
+	left: 405px;
+	top: 346.5px;
+	font-size: 48px;
+	text-align: left;
+	color: #fff;
+}
+/* 로그인창 틀 위치 */
+.login-border-frame {
+	flex-grow: 0;
+	flex-shrink: 0;
+	width: 550px;
+	height: 700px;
+	border-radius: 20px;
+	border-width: 30px;
+	border-color: rgba(255, 255, 255, 0.5);
+}
