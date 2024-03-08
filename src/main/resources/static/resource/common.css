@@ -79,7 +79,7 @@ header>div>ul>li:hover>ul {
 	display: block;
 }
 
-html, body {
+html {
 	display: flex;
 	flex-direction: column;
 	flex: 1;
@@ -89,7 +89,24 @@ html, body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
-/* main jsp css*/
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	height: 952px;
+	bottom: 0;
+	right: 0;
+}
+
+.background_img {
+	max-width: 100%; /* 부모 요소의 너비에 맞게 이미지 크기 조절 */
+	height: auto;
+	/* 가로 세로 비율 유지 */
+	position: absolute;
+	opacity: 1;
+}
+
+/* login jsp css*/
 
 /* 메인 로고 이미지 css*/
 .main-logo-img {
@@ -128,7 +145,7 @@ html, body {
 	width: 978px;
 	height: 401px;
 }
-
+/* 로그인 외곽 프레임 */
 .login-main-frame {
 	display: flex;
 	justify-content: flex-start;
@@ -165,5 +182,367 @@ html, body {
 	height: 700px;
 	border-radius: 20px;
 	border-width: 30px;
-	border-color: rgba(255, 255, 255, 0.5);
+	border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* 로그인 창 배경 */
+.login-background {
+	position: absolute;
+	left: 1178px;
+	top: 55px;
+	width: 400px;
+	height: 600px;
+	border-radius: 20px;
+	background-color: #8E7AB5;
+	align-items: center;
+	text-align: center;
+	opacity: 0.9;
+}
+
+/* 로그인 폼 */
+.login_form_frame {
+	position: relative;
+	z-index: 1;
+	background: #FFFFFF;
+	max-width: 400px;
+	height: 600px;
+	padding: 45px;
+	text-align: center;
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0
+		rgba(0, 0, 0, 0.24);
+	opacity: 0.8; /* 이미지의 투명도를 50%로 설정 */
+	background-color: #81689D;
+	border-radius: 30px;
+}
+
+.login_form_frame input {
+	font-family: "Roboto", sans-serif;
+	outline: 0;
+	background: #f2f2f2;
+	width: 100%;
+	border: 0;
+	margin: 0 0 15px;
+	padding: 15px;
+	box-sizing: border-box;
+	font-size: 14px;
+	border: solid 1px black;
+}
+
+.login_form_frame .login_btn, .login_form_frame .join_btn {
+	font-family: "Roboto", sans-serif;
+	text-transform: uppercase;
+	outline: 0;
+	background: #4CAF50;
+	width: 100%;
+	border: 0;
+	padding: 15px;
+	color: #FFFFFF;
+	font-size: 14px;
+	-webkit-transition: all 0.3 ease;
+	transition: all 0.3 ease;
+	cursor: pointer;
+}
+
+.login_form_frame button:hover, .login_form_frame button:active,
+	.login_form_frame button:focus {
+	background: #43A047;
+}
+
+.login_form_frame .message {
+	margin: 15px 0 0;
+	color: #b3b3b3;
+	font-size: 12px;
+}
+
+.login_form_frame .message a {
+	color: #4CAF50;
+	text-decoration: none;
+}
+
+.login_form_frame .register-form {
+	display: none;
+}
+
+.easy_login {
+	margin-top: 20px;
+}
+
+.easy_login_item {
+	align-content: center;
+	justify-content: center;
+	margin-top: 10px;
+	padding-top: 8px;
+	background-color: #43A047;
+	border-radius: 30px;
+	font-size: 16px;
+	height: 40px;
+}
+/* list jsp css */
+
+/* 검색창 css */
+.search_box {
+	width: 1000px;
+	height: 60px;
+	border-radius: 30px;
+	background: #fff;
+	border-width: 2px;
+	border-color: #5f3976;
+	font-size: 24px;
+}
+
+/* 검색창 배경 */
+.search_box_form_background {
+	display: flex;
+	justify-content: center; /* 요소를 수평으로 가운데 정렬합니다. */
+	align-items: center;
+	margin-top: 20px;
+}
+
+.search_box_form {
+	margin-bottom: 50px;
+}
+
+.search_btn {
+	width: 60px;
+	height: 30px;
+	border: solid 1px black;
+	border-radius: 10px;
+}
+/* 시계 임시 보류 .. */
+/* .clock {
+	height: 60px;
+	color: white;
+	font-family: sans-serif;
+	display: flex;
+	overflow: hidden;
+	position: relative;
+	margin-right: 200px;
+}
+
+.clock>div {
+	display: flex;
+}
+
+.tick {
+	line-height: 7vh;
+}
+
+.tick-hidden {
+	opacity: 0;
+}
+
+.move {
+	animation: move linear 1s infinite;
+}
+
+.number, .tick {
+	font-size: 48px;
+	color: black;
+} */
+/* 게시판 페이지 로고*/
+.board-item a:hover {
+	text-decoration: underline;
+}
+
+.board-item {
+	margin-top: 10px;
+	margin-left: 10px;
+	font-size: 20px;
+}
+
+.board-list-text {
+	font-size: 32px;
+	background-color: #7469B6;
+}
+
+.board-list-container {
+	display: flex;
+	justify-content: center; /* 가로 중앙 정렬 */
+	align-items: center; /* 세로 중앙 정렬 */
+	flex-direction: column; /* 수직 배치 */
+}
+
+.board-item-background {
+	background-color: #9290C3;
+	opacity: 0.8;
+	padding-top: 1px;
+	padding-bottom: 10px;
+}
+
+.container {
+	display: flex;
+	grid-template-columns: 80% 21%;
+	grid-template-rows: 100%;
+	width: 100%;
+	margin-left: 150px;
+}
+
+.left, .center, .right {
+	overflow-y: auto;
+	padding: 10px;
+}
+
+.left {
+	flex: 0.5;
+}
+
+.center {
+	flex: 3;
+	border-radius: 5px;
+}
+
+.right {
+	flex: 1;
+	border: solid 1px black;
+	border-radius: 10px;
+}
+
+#login-btn {
+	margin-top: 20px;
+	padding-top: 15px;
+	text-align: center;
+	background-color: blue;
+	width: 300px;
+	height: 60px;
+	background-color: #ccccee;
+	border-radius: 3px;
+}
+
+.article_write {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+article_write th, td {
+	border: 1px solid #ccc;
+	padding: 8px;
+	text-align: left;
+}
+
+th {
+	background-color: #f0f0f0;
+}
+
+/* head jsp css*/
+
+/* 상단 바 배경 */
+.navbar {
+	overflow: hidden;
+	background-color: #7469B6;
+	opacity: 1;
+	height: 70px;
+}
+/* 로고와 로고명 css*/
+.navbar a {
+	float: left;
+	display: block;
+	color: #f2f2f2;
+	text-align: center;
+	padding: 14px 20px;
+	text-decoration: none;
+}
+
+.navbar a:hover {
+	background-color: #ddd;
+	color: black;
+}
+
+.navbar img {
+	display: inline-block;
+	width: 40px; /* 이미지의 너비 설정 */
+	height: auto; /* 높이 자동 조정 */
+}
+
+/* main jsp css */
+.img_text {
+	text-align: center; /* 텍스트를 가운데 정렬 */
+	text-decoration: none; /* 링크의 기본 밑줄 제거 */
+	color: white; /* 텍스트 색상 지정 */
+	display: block; /* 텍스트를 블록 요소로 변경하여 이미지 아래에 위치시킴 */
+}
+
+.menu-bar li {
+	border-radius: 10px;
+}
+
+.img_text {
+	text-align: center; /* 텍스트를 가운데 정렬 */
+	text-decoration: none; /* 링크의 기본 밑줄 제거 */
+	color: black; /* 텍스트 색상 지정 */
+	display: block; /* 텍스트를 블록 요소로 변경하여 이미지 아래에 위치시킴 */
+}
+
+.main_img li {
+	display: inline-block;
+	justify-content: space-around;
+}
+
+.main_img img {
+	display: block; /* 이미지를 블록 요소로 변경하여 가로 정렬을 쉽게 함 */
+	margin-bottom: 5px; /* 이미지 아래 여백 추가 */
+	width: 250px;
+	height: 250px;
+	border-radius: 30px;
+	margin-bottom: 5px;
+}
+
+/* painting jsp css */
+#drawing-board {
+	border: 1px solid black;
+}
+
+.paint_save {
+	border-radius: 5px;
+	border: 1px solid black;
+	padding: 0 10px;
+}
+
+/* psychological test jsp css */
+.psychological-test-container {
+	width: 30%;
+	height:40%;
+	margin: auto;
+	padding: 0 25px 40px 10px;
+	background-color: #9195F6;
+	border: 4px solid #B0E0E6;
+	border-radius: 5px;
+	color: #FFFFFF;
+	font-weight: bold;
+	box-shadow: 5px 5px 5px #888;
+}
+.psychological-test-title{
+	font-size:32px;
+	text-align:center;
+}
+.question {
+	display: none;
+	margin-bottom: 20px;
+	background-color: #333;
+	text-align: center;
+}
+
+.options {
+	display: inline-block;
+	width: 500px;
+	height: auto;
+	background-color: #ededed;
+	width: 500px;
+}
+
+.options p {
+	font-size: 20px;
+}
+
+.options label, .options p {
+	display: block;
+	margin-bottom: 10px;
+	text-align: left;
+}
+
+.options input[type="radio"] {
+	margin-right: 10px;
+}
+
+.hidden {
+	display: none;
 }
