@@ -30,8 +30,6 @@
 		</form> -->
 
 		<div style="width: 1920px; height: 1080px; position: relative; overflow: hidden; background: #fff;">
-			<img src="unsplash:eoda_8ctofo.jpeg"
-				style="width: 1920px; height: 1080px; position: absolute; left: -1px; top: -1px; object-fit: cover;" />
 			<div style="width: 1920px; height: 759px;">
 				<div style="width: 1920px; height: 759px; position: absolute; left: -0.5px; top: 320.5px; background: #1c1334;"></div>
 				<div style="width: 930.19px; height: 67.04px;">
@@ -73,13 +71,9 @@
 						</div>
 					</div>
 				</div>
+				<-- 사진,그림,분석 사진 넣는 곳 -->
 				<div style="width: 194.78px; height: 35.14px;">
-					<img src="paint.png"
-						style="width: 49.69px; height: 35.14px; position: absolute; left: 155.52px; top: 804.71px; object-fit: contain;" />
-					<img src="story-book.png"
-						style="width: 49.69px; height: 35.14px; position: absolute; left: 228.07px; top: 804.71px; object-fit: contain;" />
-					<img src="picture.png"
-						style="width: 49.69px; height: 35.14px; position: absolute; left: 82.98px; top: 804.71px; object-fit: contain;" />
+				
 				</div>
 				<div
 					style="width: 227.58px; height: 35.14px; position: absolute; left: 72.05px; top: 865.86px; border-radius: 10px; background: #433c6f;"></div>
@@ -202,8 +196,7 @@
 					<br />
 					<span style="width: 158px; height: 100px; font-size: 60px; text-align: left; color: #fff;">diary</span>
 				</p>
-				<img src="image-10.png"
-					style="width: 200px; height: 139.21px; position: absolute; left: 46.5px; top: 57.5px; object-fit: cover;" />
+				
 			</div>
 			<div style="width: 200px; height: 78px; position: absolute; left: 66px; top: 237px; background: #725a99;"></div>
 			<div

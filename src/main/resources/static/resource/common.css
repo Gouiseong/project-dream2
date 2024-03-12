@@ -279,6 +279,9 @@ body {
 }
 /* list jsp css */
 
+.flex-box{
+	display:flex;
+}
 /* 검색창 css */
 .search_box {
 	width: 1000px;
@@ -298,8 +301,20 @@ body {
 	margin-top: 20px;
 }
 
+/* 시계 */
+#timedate {
+  font: small-caps lighter 43px/150% "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+  text-align:left;
+  width: 50%;
+  color:#333;
+  border-left: 3px solid #333;
+  padding: 20px;
+  
+}
+/* 검색창 틀 */
 .search_box_form {
 	margin-bottom: 50px;
+	margin-right: 400px;
 }
 
 .search_btn {
@@ -551,20 +566,20 @@ th {
 /* 메인 화면의 메뉴 박스 */
 .home {
 	height: 100vh;
-	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/769286/lake-macquarie-71208_1920.jpg);
+	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://fly.storage.tigris.dev/pai-images/f965bf5b17cf44559503d978e95eff02.jpeg);
 	background-size: cover;
 	background-position: center center;
 	background-attachment: fixed;
 	
 }
 .about {
-	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/769286/beach-2089959_1280.jpg);
+	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://fly.storage.tigris.dev/pai-images/ca9f7a8b216d474f8b2c52b048bfe5af.jpeg);
 	background-size: cover;
 	background-position: center center;
 	background-attachment: fixed;	
 }
 .contact {
-		background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/769286/lake-696098_1920.jpg);
+		background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://fly.storage.tigris.dev/pai-images/d85f5615e60b4da3894556289b3d27c7.jpeg);
 	background-size: cover;
 	background-position: center center;
 	background-attachment: fixed;

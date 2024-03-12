@@ -44,7 +44,7 @@
 		</a>
 	</div>
 	<div class="flex-slide work">
-		<div class="flex-title ">Home</div>
+		<div class="flex-title ">Calendar</div>
 		<div class="flex-about">
 			<p>캘린더</p>
 		</div>

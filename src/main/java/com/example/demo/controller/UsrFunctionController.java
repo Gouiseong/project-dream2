@@ -42,6 +42,12 @@ public class UsrFunctionController {
 
 		return "usr/function/psychological_test";
 	}
+	
+	@RequestMapping("/usr/function/psychological_test2")
+	public String doPsycho_Test2() {
+
+		return "usr/function/psychological_test2";
+	}
 
 	
 

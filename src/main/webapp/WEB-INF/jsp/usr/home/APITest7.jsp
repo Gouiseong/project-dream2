@@ -15,14 +15,13 @@
 	<label>날씨</label>
 	<h2>종로 날씨</h2>
 	<script>
-		const API_KEY = 'ZgjRhTc3BeH1LoIIoEyv09%2BR33S0zgewRwrkShmFTR1WUUJheNxlSVnmECtQg2vSZGHsIfElEms2r6ngi%2FKi0w%3D%3D';
-		const url = 'https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtNcst?serviceKey='
-				+ API_KEY
-				+ '&pageNo=1&numOfRows=1000&dataType=JSON&base_date=20240312&base_time=0600&nx=55&ny=127';
+		const API_KEY = '72801a6178edfb4dcfb9d6d07efa43cb';
+		const url = 'http://api.openweathermap.org/data/2.5/forecast?id=524901&appid='
+				+ API_KEY;
 		$.getJSON(url, function(data) {
 			console.log(data);
-			console.log(data.response.body.items.item[0].obsrValue);
-			console.log(data.response.body.items.ny);
+			console.log(data.city)
+			
 		});
 	</script>
 </body>
