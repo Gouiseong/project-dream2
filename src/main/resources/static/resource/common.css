@@ -390,27 +390,40 @@ body {
 	flex: 3;
 	border-radius: 5px;
 }
+/* 로그인 틀 */
 
 .right {
 	flex: 1;
 	border: solid 1px black;
 	border-radius: 10px;
+	margin-bottom: 400px;
+	padding-bottom: 70px;
 }
 
 #login-btn {
-	margin-top: 20px;
-	padding-top: 15px;
+	margin-top:10px;
+	margin-left: 10px;
 	text-align: center;
 	background-color: blue;
 	width: 300px;
 	height: 60px;
 	background-color: #ccccee;
 	border-radius: 3px;
+	padding: 20px;
+}
+
+.write-btn{
+	margin-left: 850px;
+	padding: 10px 40px;
+	margin-bottom: 20px;
+	background-color: #6a4c93;
+	border-radius:10px;
 }
 
 .article_write {
 	width: 100%;
 	border-collapse: collapse;
+	margin-top: 20px;
 }
 
 article_write th, td {

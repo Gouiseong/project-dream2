@@ -1,53 +1,83 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ include file="../common/head.jspf"%>
-<div class="main_img">
-	<div class="menu-bar">
-		<ul>
-			<li>
-				<a href="../article/list?boardId=1&page=1">
-					<img class="moons_img" src="https://fly.storage.tigris.dev/pai-images/f4d16d6590dc4ab4a00765f71ae8fe7f.jpeg" alt="">
-					<span class="img_text">글 보러가기</span>
-				</a>
-			</li>
-			<li>
-				<a href="../function/painting">
-					<img src="https://fly.storage.tigris.dev/pai-images/5ac9f174ae264c9286c468ca6ebcf10c.jpeg" alt="귀여운고양이" />
-					<span class="img_text">그림 그리기</span>
-				</a>
-			</li>
-			<li>
-
-				<a href="../function/psychological_test">
-					<img src="https://fly.storage.tigris.dev/pai-images/2374d939ee014eeeb3b8db767d0f91ba.jpeg" alt="귀여운고양이" />
-					<span class="img_text">ai그림 가져오기</span>
-				</a>
-			</li>
-			<li>
-					<a href="../function/psychological_test">
-						<img src="https://fly.storage.tigris.dev/pai-images/5959c8f61c5849609caec7e00487444b.jpeg"
-							alt="">
-						<span class="img_text">심리테스트 하러가기</span>
-					</a>
-			</li>
-			<li>
-
-				<a href="#">
-					<img src="https://fly.storage.tigris.dev/pai-images/2374d939ee014eeeb3b8db767d0f91ba.jpeg" alt="귀여운고양이" />
-					<span class="img_text">꿈 캘린더</span>
-				</a>
-			</li>
-			<li>
-
-				<a href="#">
-					<img src="https://fly.storage.tigris.dev/pai-images/2374d939ee014eeeb3b8db767d0f91ba.jpeg" alt="귀여운고양이" />
-					<span class="img_text">콘텐츠 추천</span>
-				</a>
-			</li>
-			<!-- 필요한 만큼 메뉴 항목을 추가하세요 -->
-		</ul>
+<div class="flex-container">
+	<div class="spinner"></div>
+	<div class="flex-slide home">
+		<a href="../article/list">
+			<div class="flex-title">Home</div>
+			<div class="flex-about">
+				<p>글 보러가기</p>
+				<br />
+				<ul class="flex-about-text">
+					<li>- 게시된 글들을 볼 수 있어요</li>
+					<li>-</li>
+				</ul>
+			</div>
+		</a>
 	</div>
-</div> 
+	<div class="flex-slide about">
+		<a href="../function/painting">
+			<div class="flex-title">Drawing</div>
+			<div class="flex-about ">
+				<p>그림</p>
+				<br />
+				<ul class="flex-about-text">
+					<li>- 꿈에 나왔던 인물을 그려볼 수 있어요</li>
+					<li>- 그림을 그리고 저장해서 일지에 넣을 수 있어요</li>
+				</ul>
+			</div>
+		</a>
+	</div>
+	<div class="flex-slide contact">
+		<a href="../function/psychological_test">
+			<div class="flex-title ">Psychological</div>
+			<div class="flex-title ">Test</div>
+			<div class="flex-about ">
+				<p>심리테스트</p>
+				<br />
+				<ul class="flex-about-text">
+					<li>- 꿈에 나왔던 것들을 상상하며 심리테스트를 해봐요</li>
+					<li>- 결과를 가지고 해석해드려요</li>
+				</ul>
+			</div>
+		</a>
+	</div>
+	<div class="flex-slide work">
+		<div class="flex-title ">Home</div>
+		<div class="flex-about">
+			<p>캘린더</p>
+		</div>
+	</div>
+</div>
+
+<script>
+	(function() {
+		$('.flex-container').waitForImages(function() {
+			$('.spinner').fadeOut();
+		}, $.noop, true);
+
+		$(".flex-slide").each(function() {
+			$(this).hover(function() {
+				$(this).find('.flex-title').css({
+					transform : 'rotate(0deg)',
+					top : '10%'
+				});
+				$(this).find('.flex-about').css({
+					opacity : '1'
+				});
+			}, function() {
+				$(this).find('.flex-title').css({
+					transform : 'rotate(90deg)',
+					top : '15%'
+				});
+				$(this).find('.flex-about').css({
+					opacity : '1'
+				});
+			})
+		});
+	})();
+</script>
 
 
-	<%@ include file="../common/foot.jspf"%>
+<%@ include file="../common/foot.jspf"%>

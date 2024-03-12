@@ -55,10 +55,10 @@
 					</span>
 					<ul class="board-item-background">
 						<li class="board-item">
-							<a href="#">자유 게시판</a>
+							<a href="../article/list?boardId=1&page=1">자유 게시판</a>
 						</li>
 						<li class="board-item">
-							<a href="#">꿈 게시판</a>
+							<a href="../article/list?boardId=2&page=1">꿈 게시판</a>
 						<!-- 필요한 만큼 게시판 목록을 추가하세요 -->
 					</ul>
 				</div>
@@ -73,7 +73,7 @@
 				<c:if test="${rq.isLogined() }">
 
 					<a class="hover:underline" href="../article/write">
-						<span class="write">글쓰기</span>
+						<span class="write-btn">글쓰기</span>
 					</a>
 
 				</c:if>
@@ -81,6 +81,7 @@
 			<table class="article_write">
 				<colgroup>
 					<col style="width: 10%" />
+					<col style="width: 5%" />
 					<col style="width: 50%" />
 					<col style="width: 15%" />
 					<col style="width: 10%" />
@@ -88,6 +89,7 @@
 				<thead>
 					<tr>
 						<th></th>
+						<th>번호</th>
 						<th>제목</th>
 						<th>작성일</th>
 						<th>작성자</th>
@@ -101,6 +103,7 @@
 
 						<tr class="hover article_table">
 							<td>꿈 게시판</td>
+							<td>${article.id }</td>
 							<td>
 								<a href="detail?id=${article.id }">${article.title }
 									<c:if test="${article.extra__repliesCnt > 0 }">
@@ -142,6 +145,14 @@
 					</li>
 				</c:if>
 			</ul>
+		</div>
+	</div>
+			<!-- 	원래 페이징 -->
+	<div class="pagination flex justify-center mt-3">
+		<div class="btn-group">
+			<c:forEach begin="1" end="${pagesCount }" var="i">
+				<a class="btn btn-sm ${param.page == i ? 'btn-active' : '' }" href="?page=${i }&boardId=${param.boardId}">${i }</a>
+			</c:forEach>
 		</div>
 	</div>
 	<!-- 	<div
