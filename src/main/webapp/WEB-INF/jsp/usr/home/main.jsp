@@ -32,15 +32,20 @@
 	<div class="flex-slide contact">
 		<a href="../function/psychological_test">
 			<div class="flex-title ">Psychological</div>
+			<br />
+			
 			<div class="flex-title ">Test</div>
+
 			<div class="flex-about ">
 				<p>심리테스트</p>
 				<br />
+				
 				<ul class="flex-about-text">
 					<li>- 꿈에 나왔던 것들을 상상하며 심리테스트를 해봐요</li>
 					<li>- 결과를 가지고 해석해드려요</li>
 				</ul>
 			</div>
+
 		</a>
 	</div>
 	<div class="flex-slide work">
@@ -77,6 +82,7 @@
 			})
 		});
 	})();
+
 </script>
 
 

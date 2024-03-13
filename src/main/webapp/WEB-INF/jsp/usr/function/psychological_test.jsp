@@ -10,226 +10,237 @@
 <title>Psychological_test</title>
 </head>
 <body>
-	<section class="psychological-test-container">
-		<div class="psychological-test-title">
-			<h1>꿈 심리테스트</h1>
-		</div>
-		<div class="question" style="display: block;">
-			<div class="options">
-				<p>1. 꿈에서 자주 나오는 장소는?</p>
-				<label>
-					<input type="radio" name="q1" value="0">
-					집
-				</label>
-				<label>
-					<input type="radio" name="q1" value="1">
-					학교/직장
-				</label>
-				<label>
-					<input type="radio" name="q1" value="2">
-					자연 속(숲, 해변 등)
-				</label>
-				<label>
-					<input type="radio" name="q1" value="3">
-					낯선 곳
-				</label>
+	<div class="psychological-test-background">
+		<section class="psychological-test-container">
+			<div class="psychological-test-title">
+				<h1>꿈 심리테스트</h1>
 			</div>
-		</div>
-		<c:if test=""></c:if>
-		<div class="question">
-			<div class="options">
-				<p>2. 꿈에서 당신의 역할은?</p>
-				<label>
-					<input type="radio" name="q2" value="0">
-					주인공
-				</label>
-				<label>
-					<input type="radio" name="q2" value="1">
-					스승/리더
-				</label>
-				<label>
-					<input type="radio" name="q2" value="2">
-					탐험가/모험가
-				</label>
-				<label>
-					<input type="radio" name="q2" value="3">
-					관찰자/배경
-				</label>
+			<div class="question" style="display: block;">
+				<div class="options">
+					<p>1. 꿈에서 자주 나오는 장소는?</p>
+					<label>
+						<input type="radio" name="q1" value="0">
+						집
+					</label>
+					<label>
+						<input type="radio" name="q1" value="1">
+						학교/직장
+					</label>
+					<label>
+						<input type="radio" name="q1" value="2">
+						자연 속(숲, 해변 등)
+					</label>
+					<label>
+						<input type="radio" name="q1" value="3">
+						낯선 곳
+					</label>
+				</div>
 			</div>
-		</div>
-		<div class="question">
-			<div class="options">
-				<p>3. 꿈에서 흔히 본 사물은?</p>
-				<label>
-					<input type="radio" name="q3" value="0">
-					물
-				</label>
-				<label>
-					<input type="radio" name="q3" value="1">
-					동물
-				</label>
-				<label>
-					<input type="radio" name="q3" value="2">
-					높은 곳(산,빌딩 등)
-				</label>
-				<label>
-					<input type="radio" name="q3" value="3">
-					사람
-				</label>
+			<c:if test=""></c:if>
+			<div class="question">
+				<div class="options">
+					<p>2. 꿈에서 당신의 역할은?</p>
+					<label>
+						<input type="radio" name="q2" value="0">
+						주인공
+					</label>
+					<label>
+						<input type="radio" name="q2" value="1">
+						스승/리더
+					</label>
+					<label>
+						<input type="radio" name="q2" value="2">
+						탐험가/모험가
+					</label>
+					<label>
+						<input type="radio" name="q2" value="3">
+						관찰자/배경
+					</label>
+				</div>
 			</div>
-		</div>
-		<div class="question">
-			<div class="options">
-				<p>4. 꿈에서의 감정은?</p>
-				<label>
-					<input type="radio" name="q4" value="0">
-					행복하고 안정적
-				</label>
-				<label>
-					<input type="radio" name="q4" value="1">
-					긴장되고 불안함
-				</label>
-				<label>
-					<input type="radio" name="q4" value="2">
-					호기심과 흥분
-				</label>
-				<label>
-					<input type="radio" name="q4" value="3">
-					혼란과 고립감
-				</label>
+			<div class="question">
+				<div class="options">
+					<p>3. 꿈에서 흔히 본 사물은?</p>
+					<label>
+						<input type="radio" name="q3" value="0">
+						물
+					</label>
+					<label>
+						<input type="radio" name="q3" value="1">
+						동물
+					</label>
+					<label>
+						<input type="radio" name="q3" value="2">
+						높은 곳(산,빌딩 등)
+					</label>
+					<label>
+						<input type="radio" name="q3" value="3">
+						사람
+					</label>
+				</div>
 			</div>
-		</div>
-		<div class="question">
-			<div class="options">
-				<p>5. 꿈에서 자주 본 색깔은?</p>
-				<label>
-					<input type="radio" name="q5" value="0">
-					푸른색
-				</label>
-				<label>
-					<input type="radio" name="q5" value="1">
-					붉은색
-				</label>
-				<label>
-					<input type="radio" name="q5" value="2">
-					녹색
-				</label>
-				<label>
-					<input type="radio" name="q5" value="3">
-					검은색
-				</label>
+			<div class="question">
+				<div class="options">
+					<p>4. 꿈에서의 감정은?</p>
+					<label>
+						<input type="radio" name="q4" value="0">
+						행복하고 안정적
+					</label>
+					<label>
+						<input type="radio" name="q4" value="1">
+						긴장되고 불안함
+					</label>
+					<label>
+						<input type="radio" name="q4" value="2">
+						호기심과 흥분
+					</label>
+					<label>
+						<input type="radio" name="q4" value="3">
+						혼란과 고립감
+					</label>
+				</div>
 			</div>
-		</div>
-		<div class="question">
-			<div class="options">
-				<p>6. 꿈에서 자주 만나는 인물은 누구인가요?</p>
-				<label>
-					<input type="radio" name="q6" value="0">
-					가족 구성원
-				</label>
-				<label>
-					<input type="radio" name="q6" value="1">
-					친구
-				</label>
-				<label>
-					<input type="radio" name="q6" value="2">
-					유명인사/역사적 인물
-				</label>
-				<label>
-					<input type="radio" name="q6" value="3">
-					낯선 사람
-				</label>
+			<div class="question">
+				<div class="options">
+					<p>5. 꿈에서 자주 본 색깔은?</p>
+					<label>
+						<input type="radio" name="q5" value="0">
+						푸른색
+					</label>
+					<label>
+						<input type="radio" name="q5" value="1">
+						붉은색
+					</label>
+					<label>
+						<input type="radio" name="q5" value="2">
+						녹색
+					</label>
+					<label>
+						<input type="radio" name="q5" value="3">
+						검은색
+					</label>
+				</div>
 			</div>
-		</div>
-		<div class="question">
-			<div class="options">
-				<p>7. 꿈에서 가장 흔히 하는 활동은 무엇인가요?</p>
-				<label>
-					<input type="radio" name="q7" value="0">
-					운동/스포츠
-				</label>
-				<label>
-					<input type="radio" name="q7" value="1">
-					공부/학습
-				</label>
-				<label>
-					<input type="radio" name="q7" value="2">
-					여행/모험
-				</label>
-				<label>
-					<input type="radio" name="q7" value="3">
-					대화/소통
-				</label>
+			<div class="question">
+				<div class="options">
+					<p>6. 꿈에서 자주 만나는 인물은 누구인가요?</p>
+					<label>
+						<input type="radio" name="q6" value="0">
+						가족 구성원
+					</label>
+					<label>
+						<input type="radio" name="q6" value="1">
+						친구
+					</label>
+					<label>
+						<input type="radio" name="q6" value="2">
+						유명인사/역사적 인물
+					</label>
+					<label>
+						<input type="radio" name="q6" value="3">
+						낯선 사람
+					</label>
+				</div>
 			</div>
-		</div>
-		<div class="question">
-			<div class="options">
-				<p>8. 꿈에서 자주 경험하는 감각은 무엇인가요?</p>
-				<label>
-					<input type="radio" name="q8" value="0">
-					시각적인 것들 (풍경, 사물 등)
-				</label>
-				<label>
-					<input type="radio" name="q8" value="1">
-					청각적인 것들 (소리, 음악 등)
-				</label>
-				<label>
-					<input type="radio" name="q8" value="2">
-					촉각적인 것들 (만지는 것, 온도 등)
-				</label>
-				<label>
-					<input type="radio" name="q8" value="3">
-					미각적인 것들 (음식, 맛 등)
-				</label>
+			<div class="question">
+				<div class="options">
+					<p>7. 꿈에서 가장 흔히 하는 활동은 무엇인가요?</p>
+					<label>
+						<input type="radio" name="q7" value="0">
+						운동/스포츠
+					</label>
+					<label>
+						<input type="radio" name="q7" value="1">
+						공부/학습
+					</label>
+					<label>
+						<input type="radio" name="q7" value="2">
+						여행/모험
+					</label>
+					<label>
+						<input type="radio" name="q7" value="3">
+						대화/소통
+					</label>
+				</div>
 			</div>
-		</div>
-		<div class="question">
-			<div class="options">
-				<p>9. 꿈에서의 날씨는 어떤 편인가요?</p>
-				<label>
-					<input type="radio" name="q9" value="0">
-					맑음/햇살 가득한 날씨
-				</label>
-				<label>
-					<input type="radio" name="q9" value="1">
-					흐림/비 오는 날씨
-				</label>
-				<label>
-					<input type="radio" name="q9" value="2">
-					폭풍우/천둥 번개가 치는 날씨
-				</label>
-				<label>
-					<input type="radio" name="q9" value="3">
-					안개/흐린 날씨
-				</label>
+			<div class="question">
+				<div class="options">
+					<p>8. 꿈에서 자주 경험하는 감각은 무엇인가요?</p>
+					<label>
+						<input type="radio" name="q8" value="0">
+						시각적인 것들 (풍경, 사물 등)
+					</label>
+					<label>
+						<input type="radio" name="q8" value="1">
+						청각적인 것들 (소리, 음악 등)
+					</label>
+					<label>
+						<input type="radio" name="q8" value="2">
+						촉각적인 것들 (만지는 것, 온도 등)
+					</label>
+					<label>
+						<input type="radio" name="q8" value="3">
+						미각적인 것들 (음식, 맛 등)
+					</label>
+				</div>
 			</div>
-		</div>
-		<div class="question">
-			<div class="options">
-				<p>10. 꿈에서 자주 나오는 숫자는 무엇인가요?</p>
-				<label>
-					<input type="radio" name="q10" value="0">
-					3
-				</label>
-				<label>
-					<input type="radio" name="q10" value="1">
-					7
-				</label>
-				<label>
-					<input type="radio" name="q10" value="2">
-					12
-				</label>
-				<label>
-					<input type="radio" name="q10" value="3">
-					5
-				</label>
+			<div class="question">
+				<div class="options">
+					<p>9. 꿈에서의 날씨는 어떤 편인가요?</p>
+					<label>
+						<input type="radio" name="q9" value="0">
+						맑음/햇살 가득한 날씨
+					</label>
+					<label>
+						<input type="radio" name="q9" value="1">
+						흐림/비 오는 날씨
+					</label>
+					<label>
+						<input type="radio" name="q9" value="2">
+						폭풍우/천둥 번개가 치는 날씨
+					</label>
+					<label>
+						<input type="radio" name="q9" value="3">
+						안개/흐린 날씨
+					</label>
+				</div>
 			</div>
-		</div>
-		<button id="nextButton" style="display: block;">다음 문제로</button>
-		<button id="finishButton" style="display: none;">종료</button>
+			<div class="question">
+				<div class="options">
+					<p>10. 꿈에서 자주 나오는 숫자는 무엇인가요?</p>
+					<label>
+						<input type="radio" name="q10" value="0">
+						3
+					</label>
+					<label>
+						<input type="radio" name="q10" value="1">
+						7
+					</label>
+					<label>
+						<input type="radio" name="q10" value="2">
+						12
+					</label>
+					<label>
+						<input type="radio" name="q10" value="3">
+						5
+					</label>
+				</div>
+			</div>
+			<button id="backButton" style="display: none;">이전 문제</button>
+			<button id="nextButton" style="display: inline-block;">다음 문제</button>
+			<button id="finishButton" style="display: none;">종료</button>
+			<a href="../home/main" id="main-btn-link">
+				<div class="main-btn">메인으로...</div>
+			</a>
 
-	</section>
-	<div id="result" style="display: none;"></div>
+
+		<div id="result-box" style="display: none;">
+			<div id="result" style="display: none;"></div>
+		</div>
+		</section>
+	</div>
+
+
 
 	<script>
 		// 문제 인덱스를 나타내는 변수
@@ -243,10 +254,11 @@
 
 		// 결과 출력을 위한 div
 		var resultDiv = document.getElementById('result');
-
+		var resultDivBackground= document.getElementById('result-box');
 		// 사용자의 선택을 저장할 배열
 		var userChoices = [];
 
+		var toMainMenu= document.getElementById('main-btn-link');
 		// 선택지에 따른 해석 결과
 		var interpretation = [
 				// 1번 문제의 선택지에 따른 해석 결과
@@ -299,43 +311,60 @@
 
 		// 다른 문제들에 대한 해석 결과 추가
 		];
+		
 
+		// 다음 버튼에 클릭 이벤트 리스너 추가
+		document.getElementById('nextButton').addEventListener('click',
+				showNextQuestion);
+
+	
+		document.getElementById('finishButton').addEventListener('click',
+				analyzeResults);
+		// 뒤로가기 버튼에 클릭 이벤트 리스너 추가
+		document.getElementById('backButton').addEventListener('click', goBack);
+
+		
 		// 다음 문제로 넘어가는 함수
 		function showNextQuestion() {
-			// 현재 보여지고 있는 문제의 선택지 확인
-			var radios = questions[currentQuestionIndex]
-					.querySelectorAll('input[type="radio"]');
-			var isChecked = false;
-			for (var i = 0; i < radios.length; i++) {
-				if (radios[i].checked) {
-					isChecked = true;
-					userChoices.push(radios[i].value);
-					break;
-				}
-			}
-			if (!isChecked) {
-				alert("선택지를 선택해주세요.");
-				return;
-			}
+			 // 현재 보여지고 있는 문제의 선택지 확인
+		    var radios = questions[currentQuestionIndex].querySelectorAll('input[type="radio"]');
+		    var isChecked = false;
+		    for (var i = 0; i < radios.length; i++) {
+		        if (radios[i].checked) {
+		            isChecked = true;
+		            userChoices.push(radios[i].value);
+		            break;
+		        }
+		    }
+		    if (!isChecked) {
+		        alert("선택지를 선택해주세요.");
+		        return;
+		    }
 
-			// 현재 보여지고 있는 문제를 숨김
-			questions[currentQuestionIndex].style.display = 'none';
+		    // 현재 보여지고 있는 문제를 숨김
+		    questions[currentQuestionIndex].style.display = 'none';
 
-			// 다음 문제 인덱스로 이동
-			currentQuestionIndex++;
+		    // 다음 문제 인덱스로 이동
+		    currentQuestionIndex++;
 
-			// 마지막 문제면 종료 버튼 보이기
-			if (currentQuestionIndex === questions.length) {
-				finishButton.style.display = 'block';
-				document.getElementById('nextButton').style.display = 'none';
-			}
+		    // 마지막 문제면 종료 버튼 보이기
+		    if (currentQuestionIndex === questions.length) {
+		        finishButton.style.display = 'inline-block';
+		        document.getElementById('nextButton').style.display = 'none';
+		    }
 
-			// 다음 문제를 보여줌
-			if (currentQuestionIndex < questions.length) {
-				questions[currentQuestionIndex].style.display = 'block';
-			}
+		    // 다음 문제를 보여줌
+		    if (currentQuestionIndex < questions.length) {
+		        questions[currentQuestionIndex].style.display = 'block';
+		    }
+
+		    // 2번 문제부터 뒤로가기 버튼 보이기
+		    if (currentQuestionIndex > 0) {
+		        backButton.style.display = 'inline-block';
+		    }
 		}
 
+		
 		// 결과 분석 함수
 		function analyzeResults() {
 			var result = "";
@@ -356,16 +385,77 @@
 			
 			// 결과를 화면에 출력
 			resultDiv.innerHTML = "<h2>분석 결과</h2>" + result;
+			
 			resultDiv.style.display = 'block';
+			resultDivBackground.style.display = 'block';
+			toMainMenu.style.display = 'block';
+		
 		}
 
-		// 다음 버튼에 클릭 이벤트 리스너 추가
-		document.getElementById('nextButton').addEventListener('click',
-				showNextQuestion);
+		// 뒤로가기 함수 정의
+		function goBack() {
+			if (currentQuestionIndex > 0) {
+		        // 현재 보여지고 있는 문제의 선택지 확인
+		        var radios = questions[currentQuestionIndex].querySelectorAll('input[type="radio"]');
+		        var isChecked = false;
+		        for (var i = 0; i < radios.length; i++) {
+		            if (radios[i].checked) {
+		                isChecked = true;
+		                userChoices.pop(); // 마지막 선택값 삭제
+		                break;
+		            }
+		        }
 
-		// 종료 버튼에 클릭 이벤트 리스너 추가
-		document.getElementById('finishButton').addEventListener('click',
-				analyzeResults);
+		        // 현재 보여지고 있는 문제를 숨김
+		        questions[currentQuestionIndex].style.display = 'none';
+
+		        // 이전 문제 인덱스로 이동
+		        currentQuestionIndex--;
+
+		        // 다음 버튼 보이기
+		        document.getElementById('nextButton').style.display = 'inline-block';
+		        // 마지막 문제가 아니라면 종료 버튼 숨기기
+		        if (currentQuestionIndex !== questions.length - 1) {
+		            document.getElementById('finishButton').style.display = 'none';
+		        }
+
+		        // 이전 문제를 보여줌
+		        questions[currentQuestionIndex].style.display = 'block';
+
+		        // 1번 문제에 도달하면 뒤로가기 버튼 숨기기
+		        if (currentQuestionIndex === 0) {
+		            backButton.style.display = 'none';
+		        }
+		    }
+		}
+
+	  /*   // 문제를 모두 푼 후에 사용자의 선택을 표시하는 함수
+	    function showUserChoices() {
+	        for (var i = 0; i < questions.length; i++) {
+	            var radios = questions[i].querySelectorAll('input[type="radio"]');
+	            for (var j = 0; j < radios.length; j++) {
+	                // 사용자가 선택한 번호가 있다면 해당 라디오 버튼을 체크 상태로 변경
+	                if (userChoices[i] === radios[j].value) {
+	                    radios[j].checked = true;
+	                }
+	            }
+	        }
+	    }
+
+	    // 각 문제의 선택지에 대한 클릭 이벤트 리스너 추가
+	    for (var i = 0; i < questions.length; i++) {
+	        var radios = questions[i].querySelectorAll('input[type="radio"]');
+	        for (var j = 0; j < radios.length; j++) {
+	            radios[j].addEventListener('click', function(event) {
+	                // 라디오 버튼을 클릭하면 해당 선택을 사용자의 선택으로 저장
+	                var questionIndex = Array.prototype.indexOf.call(questions, event.target.closest('.question'));
+	                userChoices[questionIndex] = event.target.value;
+	            });
+	        }
+	    }
+
+	    // 문제를 모두 푼 후에 사용자의 선택 표시 함수 호출
+	    showUserChoices(); */
 	</script>
 
 	<%@ include file="../common/foot.jspf"%>

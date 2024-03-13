@@ -279,6 +279,9 @@ body {
 }
 /* list jsp css */
 
+.list-background-img{
+	
+}
 .flex-box{
 	display:flex;
 }
@@ -507,8 +510,6 @@ th {
 	-ms-transition: all 500ms ease; /* IE 브라우저를 위한 전환 효과 설정 */
 	-o-transition: all 500ms ease; /* 오페라 브라우저를 위한 전환 효과 설정 */
 	transition: all 500ms ease; /* 전환 효과 설정 */
-
-
 }
 
 .flex-about {
@@ -634,6 +635,15 @@ th {
 }
 
 /* psychological test jsp css */
+
+.psychological-test-background{
+	width:auto;
+	height:834px;
+	background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(https://blog.kakaocdn.net/dn/WlqoE/btqu6zeWoNa/3AimU1hyjMZJYFymei0md0/img.jpg);
+	background-size: cover; /* 이미지를 화면에 꽉 채우도록 설정 */
+	background-repeat: no-repeat; /* 이미지 반복 설정 해제 */
+	text-align:center;
+} 
 .psychological-test-container {
 	width: 600px;
 	height: 350px;
@@ -645,18 +655,66 @@ th {
 	color: #FFFFFF;
 	font-weight: bold;
 	box-shadow: 5px 5px 5px #888;
+
 }
 
 .psychological-test-title {
 	font-size: 32px;
 	text-align: center;
 }
+#result{
+	border-top:solid 2px black;
+	border-bottom: solid 2px black ;
+	color: white;
+	font-size: 18px;
+}
+#result-box{
+    position: absolute;
+	width:600px;
+	height: auto;
+	margin-top: 70px;
+	margin-right: 1000px;
+	background-color: #333;
+	border-radius: 10px;
+	padding: 10px;
+	text-align:left;
+}
+
+/* 다음문제 버튼 */
+#backButton, #nextButton{
+margin: 10px;
+padding: 8px;
+border-radius:10px;
+background-color: #5356FF;
+border:solid 3px #4d1281;
+	transition: background-color 0.3s ease;
+}
+
+#backButton:hover, #nextButton:hover{
+	background-color: lightgray;
+}
+#main-btn-link{
+	display:none;
+}
+/* 심리테스트 창 안의 메인 가는 버튼 */
+.main-btn{
+	width:130px;
+	height:55px;
+	display:block;
+	background-color: #8320dd;
+	border: solid 3px #4d1281;
+	border-radius:30px;
+	text-align:center;
+	padding-top: 13px; 
+	float:right;
+	margin-bottom: 100px;
+	
+}
 
 /* 심리테스트 문제 틀 */
 .question {
 	display: none;
-	margin-top: 10px;
-	margin-bottom: 20px;
+	margin: auto;
 	background-color: #333;
 	text-align: center;
 	border-radius: 10px;
@@ -667,7 +725,7 @@ th {
 	width: 500px;
 	height: auto;
 	background-color: rgb(94, 70, 185);
-	width: 500px;
+	margin: auto;
 }
 
 /* 심리테스트 문제 */
