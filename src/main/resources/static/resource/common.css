@@ -98,6 +98,12 @@ body {
 	right: 0;
 }
 
+*, *:before, *:after {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
 .background_img {
 	max-width: 100%; /* 부모 요소의 너비에 맞게 이미지 크기 조절 */
 	height: auto;
@@ -278,12 +284,12 @@ body {
 	height: 40px;
 }
 /* list jsp css */
-
-.list-background-img{
+.list-background-img {
 	
 }
-.flex-box{
-	display:flex;
+
+.flex-box {
+	display: flex;
 }
 /* 검색창 css */
 .search_box {
@@ -306,13 +312,14 @@ body {
 
 /* 시계 */
 #timedate {
-  font: small-caps lighter 43px/150% "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
-  text-align:left;
-  width: 50%;
-  color:#333;
-  border-left: 3px solid #333;
-  padding: 20px;
-  
+	font: small-caps lighter 43px/150% "Segoe UI", Frutiger,
+		"Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial,
+		sans-serif;
+	text-align: left;
+	width: 50%;
+	color: #333;
+	border-left: 3px solid #333;
+	padding: 20px;
 }
 /* 검색창 틀 */
 .search_box_form {
@@ -409,7 +416,6 @@ body {
 	border-radius: 5px;
 }
 /* 로그인 틀 */
-
 .right {
 	flex: 1;
 	border: solid 1px black;
@@ -419,7 +425,7 @@ body {
 }
 
 #login-btn {
-	margin-top:10px;
+	margin-top: 10px;
 	margin-left: 10px;
 	text-align: center;
 	background-color: blue;
@@ -430,12 +436,12 @@ body {
 	padding: 20px;
 }
 
-.write-btn{
+.write-btn {
 	margin-left: 850px;
 	padding: 10px 40px;
 	margin-bottom: 20px;
 	background-color: #6a4c93;
-	border-radius:10px;
+	border-radius: 10px;
 }
 
 .article_write {
@@ -462,6 +468,7 @@ th {
 	background-color: #7469B6;
 	opacity: 1;
 	height: 70px;
+	z-index:7;
 }
 /* 로고와 로고명 css*/
 .navbar a {
@@ -485,22 +492,32 @@ th {
 }
 
 /* main jsp css */
-
 .flex-container {
 	position: absolute;
 	height: 100vh;
 	width: 100%;
 	display: flex;
 	overflow: hidden;
-	@media screen and (max-width: 768px) {
-		flex-direction: column;
-	}
+	@media
+	screen
+	and
+	(max-width:
+	768px)
+{
+	flex-direction
+	:
+	 
+	column
+	;
+	
+	
 }
 
+}
 .flex-title {
 	color: #f1f1f1;
 	position: relative;
-	font-size: 58px;
+	font-size: 40px;
 	margin: auto;
 	text-align: center;
 	transform: rotate(90deg);
@@ -526,30 +543,70 @@ th {
 	margin: auto;
 	text-align: left;
 	transform: rotate(0deg);
-	@media screen and (max-width: 768px) {
-		padding: 0%;
-		border: 0px solid #f1f1f1;
-	}
+	@media
+	screen
+	and
+	(max-width:
+	768px)
+{
+	padding
+	:
+	 
+	0
+	%;
+	
+		
+	border
+	:
+	 
+	0px
+	 
+	solid
+	 
+	#f1f1f1
+	;
+	
+	
 }
 
-.flex-about-text >li{
-	font-size:28px;
 }
+.flex-about-text>li {
+	font-size: 28px;
+}
+
 .flex-slide {
-	-webkit-flex: 1;  /* Safari 6.1+ */
-	-ms-flex: 1;  /* IE 10 */    
+	-webkit-flex: 1; /* Safari 6.1+ */
+	-ms-flex: 1; /* IE 10 */
 	flex: 1;
 	cursor: pointer;
-	transform:rotate(0deg);
+	transform: rotate(0deg);
 	-webkit-transition: all 500ms ease;
 	-moz-transition: all 500ms ease;
 	-ms-transition: all 500ms ease;
 	-o-transition: all 500ms ease;
 	transition: all 500ms ease;
-	@media screen and (max-width: 768px) {
-		overflow: auto;
-		overflow-x: hidden;
-	}
+	@media
+	screen
+	and
+	(max-width:
+	768px)
+{
+	overflow
+	:
+	 
+	auto
+	;
+	
+		
+	overflow-x
+	:
+	 
+	hidden
+	;
+	
+	
+}
+
 }
 
 /* 마우스가 메뉴에 호버될 때 1.5*/
@@ -559,38 +616,46 @@ th {
 }
 /* 마우스가 .flex-slide에 올려질 때 flex-title 요소만 90도 회전 */
 .flex-slide:hover .flex-title {
-    transform: rotate(0deg);
+	transform: rotate(0deg);
 }
-.flex-slide:hover .flex-about{
+
+.flex-slide:hover .flex-about {
 	opacity: 1;
 }
 /* 메인 화면의 메뉴 박스 */
 .home {
 	height: 100vh;
-	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://fly.storage.tigris.dev/pai-images/f965bf5b17cf44559503d978e95eff02.jpeg);
+	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+		url(https://fly.storage.tigris.dev/pai-images/f965bf5b17cf44559503d978e95eff02.jpeg);
 	background-size: cover;
 	background-position: center center;
 	background-attachment: fixed;
-	
 }
+
 .about {
-	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://fly.storage.tigris.dev/pai-images/ca9f7a8b216d474f8b2c52b048bfe5af.jpeg);
+	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+		url(https://fly.storage.tigris.dev/pai-images/ca9f7a8b216d474f8b2c52b048bfe5af.jpeg);
 	background-size: cover;
 	background-position: center center;
-	background-attachment: fixed;	
+	background-attachment: fixed;
 }
+
 .contact {
-		background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://fly.storage.tigris.dev/pai-images/d85f5615e60b4da3894556289b3d27c7.jpeg);
+	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+		url(https://fly.storage.tigris.dev/pai-images/d85f5615e60b4da3894556289b3d27c7.jpeg);
 	background-size: cover;
 	background-position: center center;
 	background-attachment: fixed;
 }
+
 .work {
-	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/769286/forest-208517_1280.jpg);
+	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+		url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/769286/forest-208517_1280.jpg);
 	background-size: cover;
 	background-position: center center;
 	background-attachment: fixed;
 }
+
 .img_text {
 	text-align: center; /* 텍스트를 가운데 정렬 */
 	text-decoration: none; /* 링크의 기본 밑줄 제거 */
@@ -635,15 +700,16 @@ th {
 }
 
 /* psychological test jsp css */
-
-.psychological-test-background{
-	width:auto;
-	height:834px;
-	background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(https://blog.kakaocdn.net/dn/WlqoE/btqu6zeWoNa/3AimU1hyjMZJYFymei0md0/img.jpg);
+.psychological-test-background {
+	width: auto;
+	height: 834px;
+	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+		url(https://blog.kakaocdn.net/dn/WlqoE/btqu6zeWoNa/3AimU1hyjMZJYFymei0md0/img.jpg);
 	background-size: cover; /* 이미지를 화면에 꽉 채우도록 설정 */
 	background-repeat: no-repeat; /* 이미지 반복 설정 해제 */
-	text-align:center;
-} 
+	text-align: center;
+}
+
 .psychological-test-container {
 	width: 600px;
 	height: 350px;
@@ -655,60 +721,61 @@ th {
 	color: #FFFFFF;
 	font-weight: bold;
 	box-shadow: 5px 5px 5px #888;
-
 }
 
 .psychological-test-title {
 	font-size: 32px;
 	text-align: center;
 }
-#result{
-	border-top:solid 2px black;
-	border-bottom: solid 2px black ;
+
+#result {
+	border-top: solid 2px black;
+	border-bottom: solid 2px black;
 	color: white;
 	font-size: 18px;
 }
-#result-box{
-    position: absolute;
-	width:600px;
+
+#result-box {
+	position: absolute;
+	width: 600px;
 	height: auto;
 	margin-top: 70px;
 	margin-right: 1000px;
 	background-color: #333;
 	border-radius: 10px;
 	padding: 10px;
-	text-align:left;
+	text-align: left;
 }
 
 /* 다음문제 버튼 */
-#backButton, #nextButton{
-margin: 10px;
-padding: 8px;
-border-radius:10px;
-background-color: #5356FF;
-border:solid 3px #4d1281;
+#backButton, #nextButton, #finishButton {
+	margin: 10px;
+	padding: 8px;
+	border-radius: 10px;
+	background-color: #5356FF;
+	border: solid 3px #4d1281;
 	transition: background-color 0.3s ease;
 }
 
-#backButton:hover, #nextButton:hover{
+#backButton:hover, #nextButton:hover, #finishButton:hover {
 	background-color: lightgray;
 }
-#main-btn-link{
-	display:none;
+
+#main-btn-link {
+	display: none;
 }
 /* 심리테스트 창 안의 메인 가는 버튼 */
-.main-btn{
-	width:130px;
-	height:55px;
-	display:block;
+.main-btn {
+	width: 130px;
+	height: 55px;
+	display: block;
 	background-color: #8320dd;
 	border: solid 3px #4d1281;
-	border-radius:30px;
-	text-align:center;
-	padding-top: 13px; 
-	float:right;
+	border-radius: 30px;
+	text-align: center;
+	padding-top: 13px;
+	float: right;
 	margin-bottom: 100px;
-	
 }
 
 /* 심리테스트 문제 틀 */
@@ -751,3 +818,350 @@ border:solid 3px #4d1281;
 	display: none;
 }
 
+/* calendar jsp css */
+
+.calendar-wrapper {
+	height: auto;
+	max-width: 730px;
+	margin: 0 auto;
+}
+
+.calendar-header {
+	background-color: rgba(18, 15, 25, 0.25);
+	height: 100%;
+	padding: 20px;
+	color: #fff;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+	position: relative;
+}
+
+.header-title {
+	padding-left: 15%;
+}
+
+.header-background {
+	background-image:
+		url("https://raw.githubusercontent.com/JustMonk/codepen-resource-project/master/img/compressed-header.jpg");
+	height: 200px;
+	background-position: center right;
+	background-size: cover;
+}
+
+.calendar-content {
+	background-color: #fff;
+	padding: 20px;
+	padding-left: 15%;
+	padding-right: 15%;
+	overflow: hidden;
+}
+
+.event-mark {
+	width: 5px;
+	height: 5px;
+	background-color: teal;
+	border-radius: 100px;
+	position: absolute;
+	left: 46%;
+	top: 70%;
+}
+
+.calendar-footer {
+	height: 200px;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+	text-align: center;
+	background-color: #4b6289 !important;
+	position: relative;
+	overflow: hidden;
+}
+
+.addForm {
+	position: absolute;
+	top: 100%;
+	width: 100%;
+	height: 100%;
+	background-color: #4b5889 !important;
+	transition: top 0.5s cubic-bezier(1, 0, 0, 1);
+	padding: 0 5px 0 5px;
+}
+
+.addForm input {
+	color: #fff;
+}
+
+.addForm .row {
+	padding-left: 0.75rem;
+	padding-right: 0.75rem;
+	margin-bottom: 0;
+}
+
+.addForm h4 {
+	color: #fff;
+	margin-bottom: 1rem;
+}
+
+.addEventButtons {
+	text-align: right;
+	padding: 0 0.75rem 0 0.75rem;
+}
+
+.addEventButtons a {
+	color: black;
+	font-weight: 300;
+}
+
+.emptyForm {
+	padding: 20px;
+	padding-left: 15%;
+	padding-right: 15%;
+}
+
+.emptyForm h4 {
+	color: #fff;
+	margin-bottom: 2rem;
+}
+
+/* 캘린더 화면 사이드바 */
+
+.main-wrapper{
+	display:flex;
+}
+.sidebar-wrapper {
+	position:fixed;
+    flex-direction: column; /* Optional: if you want items stacked vertically */
+    width: 300px; /* Adjust the width as needed */
+    height:1000px;
+    color: #333;
+    background-color: #5a649c !important;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.sidebar-title {
+	padding: 50px 6% 50px 12%;
+}
+
+.sidebar-title h4 {
+	margin-top: 0;
+}
+
+.sidebar-events {
+	overflow-x: hidden;
+	overflow-y: hidden;
+	margin-bottom: 70px;
+}
+
+.empty-message {
+	font-size: 1.2rem;
+	padding: 15px 6% 15px 12%;
+}
+
+.eventCard {
+	background-color: #fff;
+	color: black;
+	padding: 12px 24px 12px 24px;
+	border-bottom: 1px solid #E5E5E5;
+	white-space: nowrap;
+	position: relative;
+	animation: slideInDown 0.5s;
+}
+
+.eventCard-header {
+	font-weight: bold;
+}
+
+.eventCard-description {
+	color: grey;
+}
+
+.eventCard-mark-wrapper {
+	position: absolute;
+	right: 0;
+	top: 0;
+	height: 100%;
+	width: 60px;
+	background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%,
+		rgba(255, 255, 255, 1) 25%, rgba(255, 255, 255, 1) 100%);
+}
+
+.eventCard-mark {
+	width: 8px;
+	height: 8px;
+	background-color: #b39ddb;
+	border-radius: 100px;
+	position: absolute;
+	left: 50%;
+	top: 45%;
+}
+
+.day-mark {
+	width: 7px;
+	height: 7px;
+	background-color: #b39ddb;
+	border-radius: 100px;
+	position: absolute;
+	left: 47%;
+	top: 67%;
+}
+
+.content-wrapper {
+	flex:center;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	margin-left: 300px;
+}
+
+#table-body .col:hover {
+	cursor: pointer;
+	/*border: 1px solid grey;*/
+	background-color: #E0E0E0;
+}
+
+.empty-day:hover {
+	cursor: default !important;
+	background-color: #fff !important;
+}
+
+#table-body .row .col {
+	padding: .75rem;
+}
+
+#table-body .col {
+	border: 1px solid transparent;
+}
+
+#table-body {
+	
+}
+
+#table-body .row {
+	margin-bottom: 0;
+}
+
+#table-body .col {
+	padding-top: 1.3rem !important;
+	padding-bottom: 1.3rem !important;
+}
+
+#calendar-table {
+	text-align: center;
+}
+
+.prev-button {
+	position: absolute;
+	cursor: pointer;
+	left: 0%;
+	top: 35%;
+	color: grey !important;
+}
+
+.prev-button i {
+	font-size: 4em;
+}
+
+.next-button {
+	position: absolute;
+	cursor: pointer;
+	right: 0%;
+	top: 35%;
+	color: grey !important;
+}
+
+.next-button i {
+	font-size: 4em;
+}
+
+.addEvent {
+	box-shadow: 0 5px 15px rgb(57, 168, 228);
+	background-color: #39a8e4;
+	padding: 10px;
+	padding-left: 3em;
+	padding-right: 3em;
+	cursor: pointer;
+	border-radius: 25px;
+	color: #fff !important;
+	background-image: linear-gradient(135deg, #8d8dd4, #45ced4);
+}
+
+.addEvent:hover {
+	transition: box-shadow 0.5s;
+	box-shadow: 0 4px 25px rgb(57, 168, 228);
+}
+
+.mobile-header {
+	padding: 0;
+	display: none;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	position: fixed;
+	z-index: 99;
+	width: 100%;
+	background-color: #5a649c !important;
+}
+
+.mobile-header a i {
+	color: #fff;
+	font-size: 38px;
+}
+
+.mobile-header h4 {
+	color: #fff;
+}
+
+.mobile-header .row {
+	margin-bottom: 0;
+}
+
+.mobile-header h4 {
+	margin: 0;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+}
+
+@media ( max-width :992px) {
+	.content-wrapper {
+		margin-left: 0;
+	}
+	.mobile-header {
+		display: block;
+	}
+	.calendar-wrapper {
+		margin-top: 80px;
+	}
+	.sidebar-wrapper {
+		background-color: #EEEEEE !important;
+	}
+	.sidebar-title {
+		background-color: #5A649C !important;
+	}
+	.empty-message {
+		color: black;
+	}
+}
+
+@media ( max-width :767px) {
+	.content-wrapper .container {
+		width: auto;
+	}
+	.calendar-content {
+		padding-left: 5%;
+		padding-right: 5%;
+	}
+	body .row {
+		margin-bottom: 0;
+	}
+}
+
+@media ( max-width :450px) {
+	.content-wrapper {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	.content-wrapper .container {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}

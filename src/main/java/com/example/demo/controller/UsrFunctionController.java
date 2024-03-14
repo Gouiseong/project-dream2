@@ -49,6 +49,9 @@ public class UsrFunctionController {
 		return "usr/function/psychological_test2";
 	}
 
+	@RequestMapping("/usr/function/calendar")
+	public String showCalendar() {
+		return "usr/function/calendar";
+	}
 	
-
 }

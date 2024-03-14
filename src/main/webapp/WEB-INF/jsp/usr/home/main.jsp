@@ -5,13 +5,13 @@
 	<div class="spinner"></div>
 	<div class="flex-slide home">
 		<a href="../article/list">
-			<div class="flex-title">Home</div>
+			<div class="flex-title">Notice Board</div>
 			<div class="flex-about">
-				<p>글 보러가기</p>
+				<p>게시글</p>
 				<br />
 				<ul class="flex-about-text">
 					<li>- 게시된 글들을 볼 수 있어요</li>
-					<li>-</li>
+					<li>- 내 꿈을 사람들과 공유해요</li>
 				</ul>
 			</div>
 		</a>
@@ -31,15 +31,13 @@
 	</div>
 	<div class="flex-slide contact">
 		<a href="../function/psychological_test">
-			<div class="flex-title ">Psychological</div>
+			<div class="flex-title ">Psychological Test</div>
 			<br />
-			
-			<div class="flex-title ">Test</div>
 
 			<div class="flex-about ">
 				<p>심리테스트</p>
 				<br />
-				
+
 				<ul class="flex-about-text">
 					<li>- 꿈에 나왔던 것들을 상상하며 심리테스트를 해봐요</li>
 					<li>- 결과를 가지고 해석해드려요</li>
@@ -49,10 +47,17 @@
 		</a>
 	</div>
 	<div class="flex-slide work">
-		<div class="flex-title ">Calendar</div>
-		<div class="flex-about">
-			<p>캘린더</p>
-		</div>
+		<a href="../function/calendar">
+			<div class="flex-title ">Calendar</div>
+			<div class="flex-about">
+				<p>캘린더</p>
+				<br />
+				<ul class="flex-about-text">
+					<li>- 내가 쓴 글을 달력에 표시할 수 있어요</li>
+					<li>-</li>
+				</ul>
+			</div>
+		</a>
 	</div>
 </div>
 
@@ -82,7 +87,6 @@
 			})
 		});
 	})();
-
 </script>
 
 

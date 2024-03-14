@@ -18,6 +18,9 @@
 
 <!-- 제이쿼리 불러오기 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body onload="initClock()">
 	<header>
@@ -58,5 +61,3 @@
 			</ul>
 		</div>
 	</header>
-	<h1 style="font-size: 2rem;">${pageTitle }</h1>
-	<hr />
