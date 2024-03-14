@@ -33,20 +33,19 @@
 
 
 	<div class="main-wrapper">
-	
-			<div class="sidebar-wrapper">
 
-				<div class="sidebar-title">
-				<h4>Events</h4>
+		<div class="sidebar-wrapper">
+
+			<div class="sidebar-title">
+				<h4>일정</h4>
 				<h5 id="eventDayName">Date</h5>
 			</div>
 			<div class="sidebar-events" id="sidebarEvents">
-				<div class="empty-message">Sorry, no events to selected date</div>
+				<div class="empty-message">일정이 없어요</div>
 			</div>
-			</div>
+		</div>
 
-
-		<div class="content-wrapper grey lighten-3 calendar-center">
+		<div class="content-wrapper">
 			<div class="container">
 
 				<div class="calendar-wrapper z-depth-2">
@@ -64,8 +63,8 @@
 							<div class="row header-title">
 
 								<div class="header-text">
-									<h3 id="month-name">February</h3>
-									<h5 id="todayDayName">Today is Friday 7 Feb</h5>
+									<h3 id="month-name">현재 달</h3>
+									<h5 id="todayDayName">오늘날짜오는곳</h5>
 								</div>
 
 							</div>
@@ -77,13 +76,13 @@
 
 							<div id="table-header">
 								<div class="row">
-									<div class="col">Mon</div>
-									<div class="col">Tue</div>
-									<div class="col">Wed</div>
-									<div class="col">Thu</div>
-									<div class="col">Fri</div>
-									<div class="col">Sat</div>
-									<div class="col">Sun</div>
+									<div class="col">월</div>
+									<div class="col">화</div>
+									<div class="col">수</div>
+									<div class="col">목</div>
+									<div class="col">금</div>
+									<div class="col">토</div>
+									<div class="col">일</div>
 								</div>
 							</div>
 
@@ -94,26 +93,25 @@
 
 					<div class="calendar-footer">
 						<div class="emptyForm" id="emptyForm">
-							<h4 id="emptyFormTitle">No events now</h4>
-							<a class="addEvent" id="changeFormButton">Add new</a>
+							<a class="addEvent" id="changeFormButton">일정 추가</a>
 						</div>
 						<div class="addForm" id="addForm">
-							<h4>Add new event</h4>
+							<h4>새 일정</h4>
 
 							<div class="row">
 								<div class="input-field col s6">
 									<input id="eventTitleInput" type="text" class="validate">
-									<label for="eventTitleInput">Title</label>
+									<label for="eventTitleInput">제목</label>
 								</div>
 								<div class="input-field col s6">
 									<input id="eventDescInput" type="text" class="validate">
-									<label for="eventDescInput">Description</label>
+									<label for="eventDescInput">내용</label>
 								</div>
 							</div>
 
 							<div class="addEventButtons">
-								<a class="waves-effect waves-light btn blue lighten-2" id="addEventButton">Add</a>
-								<a class="waves-effect waves-light btn grey lighten-2" id="cancelAdd">Cancel</a>
+								<a class="waves-effect waves-light btn blue lighten-2" id="addEventButton">추가</a>
+								<a class="waves-effect waves-light btn grey lighten-2" id="cancelAdd">취소</a>
 							</div>
 
 						</div>
@@ -141,15 +139,16 @@
 	var selectedDayBlock = null;
 	var globalEventObj = {};
 
+	
 	function createCalendar(date, side) {
 	   var currentDate = date;
 	   var startDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
 
 	   var monthTitle = document.getElementById("month-name");
-	   var monthName = currentDate.toLocaleString("en-US", {
+	   var monthName = currentDate.toLocaleString("ko-KR", {
 	      month: "long"
 	   });
-	   var yearNum = currentDate.toLocaleString("en-US", {
+	   var yearNum = currentDate.toLocaleString("ko-KR", {
 	      year: "numeric"
 	   });
 	   monthTitle.innerHTML = `${monthName} ${yearNum}`;
@@ -185,7 +184,7 @@
 	         if (selectedDayBlock == null && i == currentDate.getDate() || selectedDate.toDateString() == new Date(currentDate.getFullYear(), currentDate.getMonth(), i).toDateString()) {
 	            selectedDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), i);
 
-	            document.getElementById("eventDayName").innerHTML = selectedDate.toLocaleString("en-US", {
+	            document.getElementById("eventDayName").innerHTML = selectedDate.toLocaleString("ko-KR", {
 	               month: "long",
 	               day: "numeric",
 	               year: "numeric"
@@ -233,7 +232,7 @@
 	createCalendar(currentDate);
 
 	var todayDayName = document.getElementById("todayDayName");
-	todayDayName.innerHTML = "Today is " + currentDate.toLocaleString("en-US", {
+	todayDayName.innerHTML = currentDate.toLocaleString("ko-KR", {
 	   weekday: "long",
 	   day: "numeric",
 	   month: "short"
@@ -245,10 +244,20 @@
 	prevButton.onclick = function changeMonthPrev() {
 	   currentDate = new Date(currentDate.getFullYear(), currentDate.getMonth() - 1);
 	   createCalendar(currentDate, "left");
+	   todayDayName.innerHTML = currentDate.toLocaleString("ko-KR", {
+		      weekday: "long",
+		      day: "numeric",
+		      month: "short"
+		   });
 	}
 	nextButton.onclick = function changeMonthNext() {
 	   currentDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1);
 	   createCalendar(currentDate, "right");
+	   todayDayName.innerHTML = currentDate.toLocaleString("ko-KR", {
+		      weekday: "long",
+		      day: "numeric",
+		      month: "short"
+		   });
 	}
 
 	function addEvent(title, desc) {
@@ -259,60 +268,70 @@
 	}
 
 	function showEvents() {
+		// 측면 표시줄 컨테이너 선택
 	   let sidebarEvents = document.getElementById("sidebarEvents");
+	// 선택된 날짜와 관련된 이벤트를 globalEventObj에서 검색
 	   let objWithDate = globalEventObj[selectedDate.toDateString()];
-
+	// 측면 내용 지우기
 	   sidebarEvents.innerHTML = "";
 
+	// 선택된 날짜에 이벤트가 있는지 확인
 	   if (objWithDate) {
 	      let eventsCount = 0;
+	   // 선택된 날짜의 각 이벤트에 대해 반복
 	      for (key in globalEventObj[selectedDate.toDateString()]) {
+	    	// 각 이벤트에 대한 컨테이너 생성
 	         let eventContainer = document.createElement("div");
 	         eventContainer.className = "eventCard";
-
+	      // 이벤트 헤더를 위한 요소 생성
 	         let eventHeader = document.createElement("div");
 	         eventHeader.className = "eventCard-header";
-
+	      // 이벤트 설명을 위한 요소 생성
 	         let eventDescription = document.createElement("div");
 	         eventDescription.className = "eventCard-description";
-
+	      // 이벤트 헤더에 이벤트 제목 추가
 	         eventHeader.appendChild(document.createTextNode(key));
 	         eventContainer.appendChild(eventHeader);
-
+	      // 이벤트 설명에 이벤트 세부 정보 추가
 	         eventDescription.appendChild(document.createTextNode(objWithDate[key]));
 	         eventContainer.appendChild(eventDescription);
-
+	      // 이벤트에 대한 표시 생성
 	         let markWrapper = document.createElement("div");
 	         markWrapper.className = "eventCard-mark-wrapper";
 	         let mark = document.createElement("div");
 	         mark.classList = "eventCard-mark";
 	         markWrapper.appendChild(mark);
 	         eventContainer.appendChild(markWrapper);
-
+	      // 측면에 이벤트 컨테이너 추가
 	         sidebarEvents.appendChild(eventContainer);
-
+	      // 이벤트 수 증가
 	         eventsCount++;
 	      }
+	   // 선택된 날짜에 대한 이벤트 수를 나타내는 메시지 업데이트
 	      let emptyFormMessage = document.getElementById("emptyFormTitle");
 	      emptyFormMessage.innerHTML = `${eventsCount} events now`;
 	   } else {
+		// 선택된 날짜에 이벤트가 없는 경우 메시지 표시
 	      let emptyMessage = document.createElement("div");
 	      emptyMessage.className = "empty-message";
-	      emptyMessage.innerHTML = "Sorry, no events to selected date";
+	      emptyMessage.innerHTML = "일정이 없습니다.";
 	      sidebarEvents.appendChild(emptyMessage);
+	   // 선택된 날짜에 이벤트가 없음을 나타내는 메시지 업데이트
 	      let emptyFormMessage = document.getElementById("emptyFormTitle");
-	      emptyFormMessage.innerHTML = "No events now";
+	      emptyFormMessage.innerHTML = "지금은 일정이 없습니다.";
 	   }
 	}
 
 	gridTable.onclick = function (e) {
-
+		// 클릭된 요소가 "col" 클래스를 가지고 있지 않거나 "empty-day" 클래스를 가지고 있다면
 	   if (!e.target.classList.contains("col") || e.target.classList.contains("empty-day")) {
 	      return;
 	   }
-
+	// 선택된 날짜 블록이 이미 존재한다면 실행
 	   if (selectedDayBlock) {
+		// 선택된 날짜 블록이 파란색이고 "lighten-3" 클래스를 가지고 있다면 실행
 	      if (selectedDayBlock.classList.contains("blue") && selectedDayBlock.classList.contains("lighten-3")) {
+	    	// 선택된 날짜 블록에서 파란색과 "lighten-3" 클래스를 제거
 	         selectedDayBlock.classList.remove("blue");
 	         selectedDayBlock.classList.remove("lighten-3");
 	      }
@@ -325,7 +344,7 @@
 
 	   showEvents();
 
-	   document.getElementById("eventDayName").innerHTML = selectedDate.toLocaleString("en-US", {
+	   document.getElementById("eventDayName").innerHTML = selectedDate.toLocaleString("ko-KR", {
 	      month: "long",
 	      day: "numeric",
 	      year: "numeric"
