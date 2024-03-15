@@ -22,7 +22,7 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
-<body onload="initClock()">
+<body>
 	<header>
 		<div class="h-30 flex mx-auto items-center text-3xl navbar">
 			<a class="logo" href="/">

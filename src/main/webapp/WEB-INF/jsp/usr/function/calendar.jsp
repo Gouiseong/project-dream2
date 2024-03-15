@@ -41,7 +41,7 @@
 				<h5 id="eventDayName">Date</h5>
 			</div>
 			<div class="sidebar-events" id="sidebarEvents">
-				<div class="empty-message">일정이 없어요</div>
+				<div class="empty-message">일정이 없습니다</div>
 			</div>
 		</div>
 
@@ -133,131 +133,174 @@
 		$(".button-collapse").sideNav();
 	</script>
 	<script>var calendar = document.getElementById("calendar-table");
+	// 테이블 바디
 	var gridTable = document.getElementById("table-body");
 	var currentDate = new Date();
 	var selectedDate = currentDate;
 	var selectedDayBlock = null;
 	var globalEventObj = {};
-
+	var monthName = currentDate.toLocaleString("ko-KR", { month: "long" }); // 월의 이름을 가져옵니다.
+	var yearNum = currentDate.getFullYear(); // 현재 연도를 가져옵니다.
+	
+	// 헤더에 월과 연도를 나타냅니다.
+	document.getElementById("month-name").innerHTML = yearNum+ " " +monthName  ; 
 	
 	function createCalendar(date, side) {
-	   var currentDate = date;
-	   var startDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
+	    // 전달된 날짜를 현재 날짜로 설정합니다.
+	    var currentDate = date;
+	    // 해당 월의 첫 번째 날을 가져옵니다.
+	    var startDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
 
-	   var monthTitle = document.getElementById("month-name");
-	   var monthName = currentDate.toLocaleString("ko-KR", {
-	      month: "long"
-	   });
-	   var yearNum = currentDate.toLocaleString("ko-KR", {
-	      year: "numeric"
-	   });
-	   monthTitle.innerHTML = `${monthName} ${yearNum}`;
+	    // 현재 연도와 월을 가져옵니다.
+	    const currentYear = startDate.getFullYear();
+	    const currentMonth = startDate.getMonth();
+	    // 달력의 제목 요소를 가져옵니다.
+	    var monthTitle = document.getElementById("month-name");
+	    // 현재 월의 이름을 가져와서 monthName 변수에 저장합니다.
+	    var monthName = currentDate.toLocaleString("ko-KR", {
+	        month: "long"
+	    });
+	    // 현재 연도를 가져와서 yearNum 변수에 저장합니다.
+	    var yearNum = currentDate.toLocaleString("ko-KR", {
+	        year: "numeric"
+	    });
 
-	   if (side == "left") {
-	      gridTable.className = "animated fadeOutRight";
-	   } else {
-	      gridTable.className = "animated fadeOutLeft";
-	   }
+	    // 달력의 제목을 설정합니다.
+	    monthTitle.innerHTML = yearNum + " " + monthName;
 
-	   setTimeout(() => {
-	      gridTable.innerHTML = "";
+	    // 화면 전환 효과를 적용합니다.
+	    if (side == "left") {
+	        // 왼쪽 방향으로 전환할 때
+	        gridTable.className = "animated fadeOutRight";
+	    } else {
+	        // 오른쪽 방향으로 전환할 때
+	        gridTable.className = "animated fadeOutLeft";
+	    }
 
-	      var newTr = document.createElement("div");
-	      newTr.className = "row";
-	      var currentTr = gridTable.appendChild(newTr);
+	    // 일정을 표시할 테이블을 초기화합니다.
+	    setTimeout(() => {
+	        gridTable.innerHTML = "";
 
-	      for (let i = 1; i < (startDate.getDay() || 7); i++) {
-	         let emptyDivCol = document.createElement("div");
-	         emptyDivCol.className = "col empty-day";
-	         currentTr.appendChild(emptyDivCol);
-	      }
+	        var newTr = document.createElement("div");
+	        newTr.className = "row";
+	        var currentTr = gridTable.appendChild(newTr);
 
-	      var lastDay = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0);
-	      lastDay = lastDay.getDate();
+	        // 이전 달의 빈 날짜를 채웁니다.
+	        for (let i = 1; i < (startDate.getDay() || 7); i++) {
+	            let emptyDivCol = document.createElement("div");
+	            emptyDivCol.className = "col empty-day";
+	            currentTr.appendChild(emptyDivCol);
+	        }
 
-	      for (let i = 1; i <= lastDay; i++) {
-	         if (currentTr.children.length >= 7) {
-	            currentTr = gridTable.appendChild(addNewRow());
-	         }
-	         let currentDay = document.createElement("div");
-	         currentDay.className = "col";
-	         if (selectedDayBlock == null && i == currentDate.getDate() || selectedDate.toDateString() == new Date(currentDate.getFullYear(), currentDate.getMonth(), i).toDateString()) {
-	            selectedDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), i);
+	        // 해당 월의 날짜를 표시합니다.
+	        var lastDay = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0);
+	        lastDay = lastDay.getDate();
 
-	            document.getElementById("eventDayName").innerHTML = selectedDate.toLocaleString("ko-KR", {
-	               month: "long",
-	               day: "numeric",
-	               year: "numeric"
-	            });
+	        for (let i = 1; i <= lastDay; i++) {
+	            if (currentTr.children.length >= 7) {
+	                currentTr = gridTable.appendChild(addNewRow());
+	            }
+	            let currentDay = document.createElement("div");
+	            currentDay.className = "col";
+	            // 선택된 날짜를 표시합니다.
+	            if (selectedDayBlock == null && i == currentDate.getDate() || selectedDate.toDateString() == new Date(currentDate.getFullYear(), currentDate.getMonth(), i).toDateString()) {
+	                selectedDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), i);
 
-	            selectedDayBlock = currentDay;
-	            setTimeout(() => {
-	               currentDay.classList.add("blue");
-	               currentDay.classList.add("lighten-3");
-	            }, 900);
-	         }
-	         currentDay.innerHTML = i;
+	                document.getElementById("eventDayName").innerHTML = selectedDate.toLocaleString("ko-KR", {
+	                    month: "long",
+	                    day: "numeric",
+	                    year: "numeric"
+	                });
 
-	         //show marks
-	         if (globalEventObj[new Date(currentDate.getFullYear(), currentDate.getMonth(), i).toDateString()]) {
-	            let eventMark = document.createElement("div");
-	            eventMark.className = "day-mark";
-	            currentDay.appendChild(eventMark);
-	         }
+	                selectedDayBlock = currentDay;
+	                setTimeout(() => {
+	                    currentDay.classList.add("blue");
+	                    currentDay.classList.add("lighten-3");
+	                }, 900);
+	            }
+	            currentDay.innerHTML = i;
 
-	         currentTr.appendChild(currentDay);
-	      }
+	            // 이벤트 마크를 표시합니다.
+	            if (globalEventObj[new Date(currentDate.getFullYear(), currentDate.getMonth(), i).toDateString()]) {
+	                let eventMark = document.createElement("div");
+	                eventMark.className = "day-mark";
+	                currentDay.appendChild(eventMark);
+	            }
 
-	      for (let i = currentTr.getElementsByTagName("div").length; i < 7; i++) {
-	         let emptyDivCol = document.createElement("div");
-	         emptyDivCol.className = "col empty-day";
-	         currentTr.appendChild(emptyDivCol);
-	      }
+	            currentTr.appendChild(currentDay);
+	        }
 
-	      if (side == "left") {
-	         gridTable.className = "animated fadeInLeft";
-	      } else {
-	         gridTable.className = "animated fadeInRight";
-	      }
+	        // 다음 달의 빈 날짜를 채웁니다.
+	        for (let i = currentTr.getElementsByTagName("div").length; i < 7; i++) {
+	            let emptyDivCol = document.createElement("div");
+	            emptyDivCol.className = "col empty-day";
+	            currentTr.appendChild(emptyDivCol);
+	        }
 
-	      function addNewRow() {
-	         let node = document.createElement("div");
-	         node.className = "row";
-	         return node;
-	      }
+	        // 화면 전환 효과를 적용합니다.
+	        if (side == "left") {
+	            gridTable.className = "animated fadeInLeft";
+	        } else {
+	            gridTable.className = "animated fadeInRight";
+	        }
 
-	   }, !side ? 0 : 270);
+	        function addNewRow() {
+	            let node = document.createElement("div");
+	            node.className = "row";
+	            return node;
+	        }
+
+	    }, !side ? 0 : 270);
 	}
 
 	createCalendar(currentDate);
 
 	var todayDayName = document.getElementById("todayDayName");
-	todayDayName.innerHTML = currentDate.toLocaleString("ko-KR", {
-	   weekday: "long",
-	   day: "numeric",
-	   month: "short"
-	});
-
+	todayDayName.innerHTML = "오늘은 " + currentDate.toLocaleString("ko-KR", {
+	    weekday: "long",
+	    day: "numeric",
+	    month: "short"
+	}) + "입니다.";
+	// 이전 달로 가는 버튼 
 	var prevButton = document.getElementById("prev");
+	// 다음 달로 가는 버튼 
 	var nextButton = document.getElementById("next");
-
+	// 이전 달로 가는 버튼 클릭 시 함수 실행
 	prevButton.onclick = function changeMonthPrev() {
 	   currentDate = new Date(currentDate.getFullYear(), currentDate.getMonth() - 1);
 	   createCalendar(currentDate, "left");
-	   todayDayName.innerHTML = currentDate.toLocaleString("ko-KR", {
-		      weekday: "long",
-		      day: "numeric",
-		      month: "short"
-		   });
+	   
+
+	    // 이전과 동일한 방식으로 현재 달의 마지막 날짜를 구하고,
+	    // 선택된 날짜가 다음 달로 변경되었을 경우, 선택된 날짜를 다음 달의 첫째 날로 변경
+	    var lastDayOfCurrentMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0).getDate();
+	    if (selectedDate.getDate() > lastDayOfCurrentMonth) {
+	        selectedDate.setDate(1);
+	    }
+
+	    // 선택된 날짜를 현재 날짜로 설정하여 해당 날짜가 파란색으로 선택되도록 함
+	    selectedDate.setFullYear(currentDate.getFullYear());
+	    selectedDate.setMonth(currentDate.getMonth());
+
+	   
 	}
+	// 다음 달로 가는 버튼 클릭 시 함수 실행
 	nextButton.onclick = function changeMonthNext() {
 	   currentDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1);
 	   createCalendar(currentDate, "right");
-	   todayDayName.innerHTML = currentDate.toLocaleString("ko-KR", {
-		      weekday: "long",
-		      day: "numeric",
-		      month: "short"
-		   });
+	   
+	   // 이전 달로 이동 후, 이전 달의 마지막 날짜로 설정
+	    var lastDayOfPrevMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0).getDate();
+
+	    // 만약 이전 달의 마지막 날짜가 선택된 날짜보다 크다면 선택된 날짜를 이전 달의 마지막 날짜로 변경
+	    if (selectedDate.getDate() > lastDayOfPrevMonth) {
+	        selectedDate.setDate(lastDayOfPrevMonth);
+	    }
+
+	    // 선택된 날짜를 현재 날짜로 설정하여 해당 날짜가 파란색으로 선택되도록 함
+	    selectedDate.setFullYear(currentDate.getFullYear());
+	    selectedDate.setMonth(currentDate.getMonth());
+	 
 	}
 
 	function addEvent(title, desc) {
@@ -265,8 +308,33 @@
 	      globalEventObj[selectedDate.toDateString()] = {};
 	   }
 	   globalEventObj[selectedDate.toDateString()][title] = desc;
+	   
+	   if (!selectedDayBlock.querySelector(".day-mark")) {
+		    selectedDayBlock.appendChild(document.createElement("div")).className = "day-mark";
+		}
 	}
 
+	/* // 이벤트 클릭 시 실행되는 함수
+	gridTable.onclick = function (e) {
+	    // 클릭된 요소가 "col" 클래스를 가지고 있지 않거나 "empty-day" 클래스를 가지고 있다면
+	    if (!e.target.classList.contains("col") || e.target.classList.contains("empty-day")) {
+	        return;
+	    }
+	    // 선택된 날짜 블록이 이미 존재한다면 실행
+	    if (selectedDayBlock) {
+	        // 선택된 날짜 블록이 파란색이고 "lighten-3" 클래스를 가지고 있다면 실행
+	        if (selectedDayBlock.classList.contains("blue") && selectedDayBlock.classList.contains("lighten-3")) {
+	            // 선택된 날짜 블록에서 파란색과 "lighten-3" 클래스를 제거
+	            selectedDayBlock.classList.remove("blue");
+	            selectedDayBlock.classList.remove("lighten-3");
+	        }
+	    }
+	    // 클릭된 이벤트의 제목과 내용을 가져옵니다.
+	    var title = e.target.innerText;
+	    var desc = globalEventObj[selectedDate.toDateString()][title];
+	    // 네모난 창으로 이벤트의 제목과 내용을 보여줍니다.
+	    showEventDetails(title, desc);
+	}; */
 	function showEvents() {
 		// 측면 표시줄 컨테이너 선택
 	   let sidebarEvents = document.getElementById("sidebarEvents");
@@ -316,9 +384,7 @@
 	      emptyMessage.className = "empty-message";
 	      emptyMessage.innerHTML = "일정이 없습니다.";
 	      sidebarEvents.appendChild(emptyMessage);
-	   // 선택된 날짜에 이벤트가 없음을 나타내는 메시지 업데이트
-	      let emptyFormMessage = document.getElementById("emptyFormTitle");
-	      emptyFormMessage.innerHTML = "지금은 일정이 없습니다.";
+	   
 	   }
 	}
 
@@ -336,6 +402,7 @@
 	         selectedDayBlock.classList.remove("lighten-3");
 	      }
 	   }
+	// 클릭된 요소를 선택된 날짜 블록으로 설정
 	   selectedDayBlock = e.target;
 	   selectedDayBlock.classList.add("blue");
 	   selectedDayBlock.classList.add("lighten-3");

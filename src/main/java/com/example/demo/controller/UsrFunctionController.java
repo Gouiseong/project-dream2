@@ -36,6 +36,11 @@ public class UsrFunctionController {
 
 		return "usr/function/painting";
 	}
+	@RequestMapping("/usr/function/painting2")
+	public String doPaint2() {
+
+		return "usr/function/painting2";
+	}
 	
 	@RequestMapping("/usr/function/psychological_test")
 	public String doPsycho_Test() {
@@ -43,15 +48,15 @@ public class UsrFunctionController {
 		return "usr/function/psychological_test";
 	}
 	
-	@RequestMapping("/usr/function/psychological_test2")
-	public String doPsycho_Test2() {
-
-		return "usr/function/psychological_test2";
-	}
 
 	@RequestMapping("/usr/function/calendar")
 	public String showCalendar() {
 		return "usr/function/calendar";
+	}
+	
+	@RequestMapping("/usr/function/calendar2")
+	public String showCalendar2() {
+		return "usr/function/calendar2";
 	}
 	
 }

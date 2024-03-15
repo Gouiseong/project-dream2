@@ -11,50 +11,81 @@
 </head>
 <body>
 	<div>그림을 그려보세요</div>
-	<canvas id="drawing-board" width="800" height="700"></canvas>
-	<input type="color" id="color-picker">
-	<button class="paint_save">저장하기</button>
-	<script>
-		const canvas = document.getElementById('drawing-board');
-		const ctx = canvas.getContext('2d');
-		let painting = false;
+	<div>
+		색 설정
+		<input type="color" id="color-picker">
+        <button id="drawButton">그리기</button>
+        <button id="eraseButton">지우기</button>
+        
+    </div>
+    <canvas id="canvas" width="800" height="500"></canvas>
+    <button class="paint_save">저장하기</button>
 
-		canvas.addEventListener('mousedown', startPosition);
-		canvas.addEventListener('mouseup', endPosition);
-		canvas.addEventListener('mousemove', draw);
+    <script>
+    var canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    const colorPicker = document.getElementById('color-picker');
+    const drawButton = document.getElementById('drawButton');
+    const eraseButton = document.getElementById('eraseButton');
+    const saveButton = document.querySelector('.paint_save');
 
-		document.getElementById('color-picker').addEventListener('change',
-				changeColor);
+    var isDrawing = false;
+    var isErasing = false;
+    var prevX = 0;
+    var prevY = 0;
+    var color = '#000';
+    
+  
 
-		function startPosition(e) {
-			painting = true;
-			draw(e);
-		}
+    drawButton.addEventListener('click', function() {
+        isDrawing = true;
+        isErasing = false;
+    });
 
-		function endPosition() {
-			painting = false;
-			ctx.beginPath();
-		}
+    eraseButton.addEventListener('click', function() {
+        isErasing = true;
+        isDrawing = false;
+    });
 
-		function draw(e) {
-			if (!painting)
-				return;
+    saveButton.addEventListener('click', function() {
+        const dataURL = canvas.toDataURL('image/png');
+        const a = document.createElement('a');
+        a.href = dataURL;
+        a.download = 'my_drawing.png';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    });
 
-			ctx.lineWidth = 5;
-			ctx.lineCap = 'round';
-			ctx.strokeStyle = document.getElementById('color-picker').value;
+    function startPosition(e) {
+        if ((isDrawing || isErasing) && e.button === 0) {
+            drawing = true;
+            draw(e);
+        }
+    }
 
-			ctx.lineTo(e.clientX - canvas.offsetLeft, e.clientY
-					- canvas.offsetTop);
-			ctx.stroke();
-			ctx.beginPath();
-			ctx.moveTo(e.clientX - canvas.offsetLeft, e.clientY
-					- canvas.offsetTop);
-		}
+    function endPosition() {
+        if (isDrawing || isErasing) {
+            drawing = false;
+            ctx.beginPath();
+        }
+    }
 
-		function changeColor() {
-			ctx.strokeStyle = this.value;
-		}
-	</script>
+    function draw(e) {
+        if (!isDrawing && !isErasing) return;
 
-<%@ include file="../common/foot.jspf"%>
+        ctx.lineWidth = 5;
+        ctx.lineCap = 'round';
+        ctx.strokeStyle = isErasing ? 'white' : colorPicker.value;
+
+        ctx.lineTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
+        ctx.stroke();
+
+        if (isDrawing) {
+            ctx.beginPath();
+            ctx.moveTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
+        }
+    }
+    </script>
+
+	<%@ include file="../common/foot.jspf"%>

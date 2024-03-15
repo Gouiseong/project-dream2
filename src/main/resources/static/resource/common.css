@@ -601,7 +601,7 @@ overflow-x:hidden;
 .home {
 	height: 100vh;
 	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-		url(https://fly.storage.tigris.dev/pai-images/f965bf5b17cf44559503d978e95eff02.jpeg);
+		url(https://e1.pxfuel.com/desktop-wallpaper/746/975/desktop-wallpaper-notepad-of-notepad-backgrounds-notepad-q-notepad.jpg);
 	background-size: cover;
 	background-position: center center;
 	background-attachment: fixed;
@@ -609,7 +609,7 @@ overflow-x:hidden;
 
 .about {
 	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-		url(https://fly.storage.tigris.dev/pai-images/ca9f7a8b216d474f8b2c52b048bfe5af.jpeg);
+		url(https://i.pinimg.com/736x/58/50/77/585077f55fdc2392380b44b7995a3334.jpg);
 	background-size: cover;
 	background-position: center center;
 	background-attachment: fixed;
@@ -617,7 +617,7 @@ overflow-x:hidden;
 
 .contact {
 	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-		url(https://fly.storage.tigris.dev/pai-images/d85f5615e60b4da3894556289b3d27c7.jpeg);
+		url(https://img.freepik.com/premium-photo/modern-night-bookshelf-book-desktop-close-up-pictures_931559-1015.jpg);
 	background-size: cover;
 	background-position: center center;
 	background-attachment: fixed;
@@ -625,7 +625,7 @@ overflow-x:hidden;
 
 .work {
 	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-		url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/769286/forest-208517_1280.jpg);
+		url(https://i.pinimg.com/originals/c8/aa/38/c8aa38bcdcc062cfde36bd881f6ccfed.png);
 	background-size: cover;
 	background-position: center center;
 	background-attachment: fixed;
@@ -664,14 +664,21 @@ overflow-x:hidden;
 }
 
 /* painting jsp css */
-#drawing-board {
+.painting-btn-container{
+	margin-top:5px;
+}
+#drawing-board,#canvas {
 	border: 1px solid black;
 }
 
-.paint_save {
+#drawBtn, #eraseBtn, #saveBtn, #clearBtn{
 	border-radius: 5px;
 	border: 1px solid black;
 	padding: 0 10px;
+}
+#eraseButton, #drawButton{
+	width:50px;
+	
 }
 
 /* psychological test jsp css */
@@ -728,7 +735,7 @@ overflow-x:hidden;
 	padding: 8px;
 	border-radius: 10px;
 	background-color: #5356FF;
-	border: solid 3px #4d1281;
+	border: solid 2px #4d1281;
 	transition: background-color 0.3s ease;
 }
 
@@ -794,6 +801,21 @@ overflow-x:hidden;
 }
 
 /* calendar jsp css */
+
+/* 캘린더 화면 전환*/
+
+.animated {
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+}
+
+.fadeInRight {
+    opacity: 1;
+}
+
+.fadeInLeft {
+    opacity: 1;
+}
 
 .calendar-wrapper {
 
@@ -974,7 +996,7 @@ height: 50px; /* 필요에 따라 조정 */
 	background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%,
 		rgba(255, 255, 255, 1) 25%, rgba(255, 255, 255, 1) 100%);
 }
-
+/* 사이드바에서 보이는 일정에 체크 표시 */
 .eventCard-mark {
 	width: 8px;
 	height: 8px;
@@ -985,18 +1007,19 @@ height: 50px; /* 필요에 따라 조정 */
 	top: 45%;
 }
 
+/* 일정 추가했을때 달력의 날짜에 표시 */
 .day-mark {
 	width: 7px;
 	height: 7px;
 	background-color: #b39ddb;
 	border-radius: 100px;
 	position: absolute;
-	left: 47%;
-	top: 67%;
+	
 }
 
 .content-wrapper {
-	background-color: red;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+		url(https://blog.kakaocdn.net/dn/WlqoE/btqu6zeWoNa/3AimU1hyjMZJYFymei0md0/img.jpg);
 	flex-grow:1;
 	margin-left: 255px;
 }
@@ -1012,25 +1035,27 @@ height: 50px; /* 필요에 따라 조정 */
 	background-color: #fff !important;
 }
 
+#table-body{
+	text-align:left;
+	
+}
 #table-body .row .col {
 	padding: .75rem;
 }
 
+/* 월의 날짜들 테두리 */
 #table-body .col {
 	border: 1px solid transparent;
 }
 
-#table-body {
-	
-}
-
 #table-body .row {
 	margin-bottom: 0;
+	
 }
 
 #table-body .col {
 	padding-top: 1.3rem !important;
-	padding-bottom: 1.3rem !important;
+	padding-bottom: 40px !important;
 }
 
 #calendar-table {
@@ -1061,6 +1086,7 @@ height: 50px; /* 필요에 따라 조정 */
 	font-size: 4em;
 }
 
+/* 일정 추가 버튼 */
 .addEvent {
 	box-shadow: 0 5px 15px rgb(57, 168, 228);
 	background-color: #39a8e4;

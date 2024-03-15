@@ -2,8 +2,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="pageTitle" value="#{board.code } ARTICLE LIST"></c:set>
 <%@ include file="../common/head.jspf"%>
+<body onload="initClock()">
+	
 
-<div class="list-background-img">
+<div class="list-background-img" >
 
 	<div class="search_box_form_background">
 		<!-- <div class="clock">
@@ -171,6 +173,7 @@
 		</div>
 	</div>
 </div>
+</body>
 <script>
 	Number.prototype.pad = function(n) {
 		for (var r = this.toString(); r.length < n; r = 0 + r)
