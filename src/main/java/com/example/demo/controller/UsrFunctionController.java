@@ -54,9 +54,4 @@ public class UsrFunctionController {
 		return "usr/function/calendar";
 	}
 	
-	@RequestMapping("/usr/function/calendar2")
-	public String showCalendar2() {
-		return "usr/function/calendar2";
-	}
-	
 }

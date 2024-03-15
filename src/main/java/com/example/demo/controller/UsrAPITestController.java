@@ -47,6 +47,12 @@ public class UsrAPITestController {
 
 		return "/usr/home/APITest7";
 	}
+	
+	@RequestMapping("/usr/home/APITest8")
+	public String APITest8() {
+
+		return "/usr/home/APITest8";
+	}
 
 
 }
