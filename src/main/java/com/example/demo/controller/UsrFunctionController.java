@@ -36,11 +36,15 @@ public class UsrFunctionController {
 
 		return "usr/function/painting";
 	}
-	@RequestMapping("/usr/function/painting2")
-	public String doPaint2() {
 
-		return "usr/function/painting2";
+	@RequestMapping("/usr/function/savepainting")
+	public Object saveImage() {
+		
+		System.out.println("하이");
+		System.out.println(123123);
+		return "usr/function/painting";
 	}
+	
 	
 	@RequestMapping("/usr/function/psychological_test")
 	public String doPsycho_Test() {

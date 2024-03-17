@@ -24,7 +24,7 @@
 		<!-- 로그인창 틀 위치 -->
 		<div class="login-border-frame-location"></div>
 		<!-- 로그인창 틀 -->
-		
+		<div class="login-border-frame"></div>
 		<!-- 로그인 창 배경 -->
 		<div class="login-background">
 	
@@ -50,15 +50,19 @@
 						<a href="">
 							<div class="easy_login_item">네이버 아이디로 로그인</div>
 						</a>
+						<a href="">
+							<div class="easy_login_item">페이스북 아이디로 로그인</div>
+						</a>
 					</div>
 				</form>
 				<form class="register-form" action="../member/doJoin" method="post">
 					<input type="hidden" name="afterLoginUri" value="${param.afterLoginUri }" />
 					<input type="text" placeholder="이름" name="name" />
-					<input type="text" placeholder="닉네임" name="nickname" />
 					<input type="text" placeholder="아이디" name="loginId" />
+					<button class="check_btn" onclick="checkDuplicate()">아이디 중복 확인</button>
 					<input type="text" placeholder="이메일" name="email" />
 					<input type="password" placeholder="비밀번호" name="loginPw" />
+					<input type="password" placeholder="비밀번호 확인" name="loginPwCheck" />
 					<input type="text" placeholder="전화번호" name="cellphoneNum" />
 					<button class="join_btn">회원가입</button>
 					<p class="message">

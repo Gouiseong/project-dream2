@@ -22,7 +22,7 @@
 		<input type="file" id="fileInput">
 	</div>
 	<canvas id="canvas" width="1500" height="800"></canvas>
-	<button id="saveBtn"><a href="../function/savepainting">저장하기</a></button>
+	<button id="saveBtn">저장하기</button>
 
 	<script>
         window.onload = function() {
@@ -50,13 +50,13 @@
                         color = '#FFF'; // 흰색으로 설정하여 지우개 역할을 함
                     });
 
-         /*    document.getElementById('saveBtn').addEventListener(
+            document.getElementById('saveBtn').addEventListener(
                     'click',
                     function() {
                         var image = canvas.toDataURL("image/png").replace(
                                 "image/png", "image/octet-stream");
                         window.location.href = image;
-                    }); */
+                    });
 
              document.getElementById('fileInput').addEventListener('change', function(e) {
                     var file = e.target.files[0];
