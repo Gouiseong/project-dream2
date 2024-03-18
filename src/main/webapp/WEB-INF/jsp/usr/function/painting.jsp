@@ -119,6 +119,20 @@
                 context.lineWidth = parseInt(this.value);
             });
             
+         // 저장하기 버튼 클릭 시 이벤트 핸들러
+            document.getElementById('saveBtn').addEventListener('click', function() {
+                // 그림판 이미지를 데이터 URL로 변환
+                const imageDataURL = canvas.toDataURL('image/png');
+
+                // 변환된 데이터 URL을 다운로드 링크로 만들어 사용자에게 제공
+                const downloadLink = document.createElement('a');
+                downloadLink.href = imageDataURL;
+                downloadLink.download = 'drawing.png'; // 파일명 지정
+                document.body.appendChild(downloadLink);
+                downloadLink.click();
+                document.body.removeChild(downloadLink);
+            });
+         
            /* 컨트롤 + z 키를 눌렀을때 그렸던 선을 한 번 지우고 되돌리는 기능(안됨 보류) 
               document.addEventListener('keyup', function(event) {
                 if (event.ctrlKey && event.key === 'z') {
