@@ -36,15 +36,6 @@ public class UsrFunctionController {
 
 		return "usr/function/painting";
 	}
-
-	@RequestMapping("/usr/function/savepainting")
-	public Object saveImage() {
-		
-		System.out.println("하이");
-		System.out.println(123123);
-		return "usr/function/painting";
-	}
-	
 	
 	@RequestMapping("/usr/function/psychological_test")
 	public String doPsycho_Test() {

@@ -22,7 +22,7 @@
 		<input type="file" id="fileInput">
 	</div>
 	<canvas id="canvas" width="1500" height="800"></canvas>
-	<button id="saveBtn"><a href="../function/savepainting">저장하기</a></button>
+	<button id="saveBtn"><a href="../function/painting">저장하기</a></button>
 
 	<script>
         window.onload = function() {
