@@ -1150,7 +1150,7 @@ height: 50px; /* 필요에 따라 조정 */
 
 .content-wrapper {
 	flex-grow:1;
-	margin-right: 40px;
+	margin-left: 150px;
 
 }
 
