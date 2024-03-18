@@ -37,9 +37,6 @@
 					<li>
 						<a class="hover:underline" href="../member/login">로그인</a>
 					</li>
-					<li>
-						<a class="hover:underline" href="../member/join">회원가입</a>
-					</li>
 				</c:if>
 				<c:if test="${rq.isLogined() }">
 					

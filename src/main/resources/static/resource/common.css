@@ -295,12 +295,13 @@ body {
 /* 검색창 css */
 .search_box {
 	width: 1000px;
-	height: 60px;
+	height: 50px;
 	border-radius: 30px;
 	background: #fff;
 	border-width: 2px;
 	border-color: #5f3976;
-	font-size: 24px;
+	font-size: 20px;
+	margin-top: 15px;
 }
 
 /* 검색창 배경 */
@@ -324,15 +325,17 @@ body {
 }
 /* 검색창 틀 */
 .search_box_form {
+	
 	margin-bottom: 50px;
 	margin-right: 400px;
 }
 
 .search_btn {
-	width: 60px;
+	width: 70px;
 	height: 30px;
 	border: solid 1px black;
 	border-radius: 10px;
+	margin-top: 10px;
 }
 
 /* 게시판 페이지 로고*/
