@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -81,6 +82,16 @@ public class UsrFunctionController {
 		functionService.saveImage(imageData);
 		
 		return "usr/function/painting";
+	}
+	
+	// 이건 url만 가져오는거 나중에 배열로 만들어서 이미지랑 등록날짜 
+	// 회원번호까지 가져오게 할수있을듯
+	@RequestMapping("/usr/function/testimage")
+	public String testimg(Model model) {
+		String imageUrl= functionService.getImageUrl();
+		model.addAttribute("imageUrl",imageUrl);
+		
+		return "usr/function/testimage";
 	}
 
 }

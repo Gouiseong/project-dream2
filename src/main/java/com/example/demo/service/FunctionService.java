@@ -16,9 +16,12 @@ public class FunctionService {
 		this.functionRepository = functionRepository;
 	}
 	public void saveImage(byte[] imageData) {
-
-		return functionRepository.saveImage(imageData);
+		functionRepository.saveImage(imageData);
 		
+	}
+	public String getImageUrl() {
+		
+		return functionRepository.getImageUrl();
 	}
 	
 }

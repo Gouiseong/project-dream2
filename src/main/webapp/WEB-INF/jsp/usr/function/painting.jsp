@@ -123,21 +123,22 @@
          // 저장하기 버튼 클릭 시 이벤트 핸들러
          document.getElementById('saveBtn').addEventListener('click', function() {
    			var imageDataURL = canvas.toDataURL('image/png');
-    		var data = { image: imageDataURL };
-
+    		var data = imageDataURL;
+				console.log("imageDataURL : ",imageDataURL);
     		// 서버로 이미지 전송
     		   			 fetch('/usr/function/painting/saveimage', {
     		       		 method: 'POST',
     		       		 headers: {
     		         		   'Content-Type': 'application/json'
     		      		  },
-    		   		     body: JSON.stringify(data)
+    		   		     body: JSON.stringify(imageDataURL)
     		   		 })
     		   		 .then(response => {
     		   		     if (response.ok) {
-    		    		        console.log('Image saved successfully.');
+    		   		    	 	alert("그림이 저장되었습니다.")
+    		    		        console.log('저장성공.');
     		    		    } else {
-    		    		        console.error('Failed to save image.');
+    		    		        console.error('저장실패.');
     		    		    }
     		   		 })
     		   		 .catch(error => {
