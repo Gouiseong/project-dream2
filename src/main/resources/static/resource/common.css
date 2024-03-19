@@ -285,10 +285,15 @@ body {
 	height: 40px;
 }
 /* list jsp css */
-.list-background-img {
-	
-}
 
+.logout-btn{
+	position:absolute;
+	
+	width:100px;
+	height: 50px;
+	top:370px;
+	right:350px;
+}
 .flex-box {
 	display: flex;
 }
@@ -648,20 +653,13 @@ overflow-x:hidden;
 	padding-top: 50px;
 	
 }
-/* 글쓰기 화면 분할 */
+/* 글쓰기 왼쪽 화면 */
 .write-background-left{
 	flex:1;
 
 	width:50%;
 	height:90%;
 	margin-left: 50px;
-}
-.write-background-right{
-	flex:1;
-
-	width:50%;
-	height:90%;
-	margin-right: 50px;
 }
 
 /* 날짜 상단 박스 */
@@ -787,14 +785,93 @@ overflow-x:hidden;
 	margin-left: 750px;
 	width:100px;
 }
+
+/* 글쓰기 오른쪽 화면 */
+.write-background-right{
+	flex:1;
+
+	width:50%;
+	height:90%;
+	margin-right: 50px;
+}
+
+/* 카테고리칸 컨테이너 */
+.write-category-box{
+	background-color: #4C4462;
+	width:150px;
+	height:50px;
+	border-radius:10px;
+	padding-top: 10px;
+	margin-left: 20px;
+	text-align:center;
+	font-size:20px;
+	color: white;
+}
+.write-category-element-container{
+	display:flex;
+}
+.write-category-element{
+	background-color: #333;
+	width:200px;
+	height:50px;
+	padding-top: 10px;
+	margin-left: 30px;
+	text-align:center;
+	font-size:20px;
+	color: white;
+	border-radius:10px;
+}
+
+.write-tag-container{
+	margin-top: 30px;
+}
+
+.write-tag-box{
+	background-color: #4C4462;
+	width:150px;
+	height:50px;
+	border-radius:10px;
+	padding-top: 10px;
+	margin-left: 20px;
+	text-align:center;
+	font-size:20px;
+	color: white;
+}
+
+.write-element-box{
+	background-color: #333;
+	width:200px;
+	height:50px;
+	padding-top: 10px;
+	margin-left: 30px;
+	text-align:center;
+	font-size:20px;
+	color: white;
+	border-radius:10px;
+}
+
+.write-tag-element-container{
+	display:flex;
+	
+}
+
+.write-tag-element-box{
+	background-color: #333;
+	width:200px;
+	height:50px;
+	padding-top: 10px;
+	margin-left: 30px;
+	text-align:center;
+	font-size:20px;
+	color: white;
+	border-radius:10px;
+}
 /* 뒤로가기 버튼 */
 .write-back-btn{
 	position:absolute;
 	margin-top: 628px;
 	margin-left: 80px;
 	
-
-
 }
 /* painting jsp css */
 .painting-btn-container{

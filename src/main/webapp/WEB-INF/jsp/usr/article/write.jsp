@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="pageTitle" value="ARTICLE WRITE"></c:set>
 <%@ include file="../common/head.jspf"%>
@@ -47,21 +46,40 @@
 			<form class="write-form" action="../article/doWrite" method="POST"
 				onsubmit="ArticleWrite__submit(this); return false;">
 				<div class="title-box">
-					<input class="title-input" autocomplete="off" type="text"
-						placeholder="제목을 입력해주세요." name="title" />
+					<input class="title-input" autocomplete="off" type="text" placeholder="제목을 입력해주세요." name="title" />
 				</div>
 				<div class="body-box">
-					<textarea class="body-input" autocomplete="off" type="text"
-						placeholder="내용을 입력해주세요" name="body"></textarea>
+					<textarea class="body-input" autocomplete="off" type="text" placeholder="내용을 입력해주세요" name="body"></textarea>
 				</div>
 				<button class="btn register" type="submit" value="작성">글 등록</button>
 			</form>
 		</div>
 	</div>
-	<div class="write-background-right"></div>
+	<div class="write-background-right">
+		<div class="write-category-container">
+			<div class="write-category-box">카테고리</div>
+			<br />
+			<div class="write-category-element-container">
+				<div class="write-category-element">나쁜꿈</div>
+				<div class="write-category-element">좋은꿈</div>
+				<div class="write-category-element">좋은꿈</div>
+				<div class="write-category-element">좋은꿈</div>
+			</div>
+		</div>
+		<div class="write-tag-container">
+			<div class="write-tag-box">태그</div>
+			<br />
+			<div class="write-tag-element-container">
+			<div class="write-tag-element-box">사람</div>
+			<div class="write-tag-element-box">동물</div>
+			<div class="write-tag-element-box">식물</div>
+			<div class="write-tag-element-box">사물</div>
+			<div class="write-tag-element-box">장소</div>
+			</div>
+		</div>
+	</div>
 
-	<button class="btn write-back-btn" class="" type="button"
-		onclick="history.back();">뒤로가기</button>
+	<button class="btn write-back-btn" class="" type="button" onclick="history.back();">뒤로가기</button>
 
 </div>
 

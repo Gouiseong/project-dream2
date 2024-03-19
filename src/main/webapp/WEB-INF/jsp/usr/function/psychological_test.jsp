@@ -234,9 +234,9 @@
 			</a>
 
 
-		<div id="result-box" style="display: none;">
-			<div id="result" style="display: none;"></div>
-		</div>
+			<div id="result-box" style="display: none;">
+				<div id="result" style="display: none;"></div>
+			</div>
 		</section>
 	</div>
 
@@ -392,42 +392,42 @@
 		
 		}
 
-		// 뒤로가기 함수 정의
+		// 뒤로가기 함수
 		function goBack() {
-			if (currentQuestionIndex > 0) {
-		        // 현재 보여지고 있는 문제의 선택지 확인
-		        var radios = questions[currentQuestionIndex].querySelectorAll('input[type="radio"]');
-		        var isChecked = false;
-		        for (var i = 0; i < radios.length; i++) {
-		            if (radios[i].checked) {
-		                isChecked = true;
-		                userChoices.pop(); // 마지막 선택값 삭제
-		                break;
-		            }
-		        }
+    if (currentQuestionIndex > 0) {
+        // 현재 보여지고 있는 문제의 선택지 확인
+        var radios = questions[currentQuestionIndex].querySelectorAll('input[type="radio"]');
+        var isChecked = false;
+        for (var i = 0; i < radios.length; i++) {
+            if (radios[i].checked) {
+                isChecked = true;
+                userChoices.pop(); // 마지막 선택값 삭제
+                break;
+            }
+        }
 
-		        // 현재 보여지고 있는 문제를 숨김
-		        questions[currentQuestionIndex].style.display = 'none';
+        // 현재 보여지고 있는 문제를 숨김
+        questions[currentQuestionIndex].style.display = 'none';
 
-		        // 이전 문제 인덱스로 이동
-		        currentQuestionIndex--;
+        // 이전 문제 인덱스로 이동
+        currentQuestionIndex--;
 
-		        // 다음 버튼 보이기
-		        document.getElementById('nextButton').style.display = 'inline-block';
-		        // 마지막 문제가 아니라면 종료 버튼 숨기기
-		        if (currentQuestionIndex !== questions.length - 1) {
-		            document.getElementById('finishButton').style.display = 'none';
-		        }
+        // 다음 버튼 보이기
+        document.getElementById('nextButton').style.display = 'inline-block';
+        // 마지막 문제가 아니라면 종료 버튼 숨기기
+        if (currentQuestionIndex !== questions.length - 1) {
+            document.getElementById('finishButton').style.display = 'none';
+        }
 
-		        // 이전 문제를 보여줌
-		        questions[currentQuestionIndex].style.display = 'block';
+        // 이전 문제를 보여줌
+        questions[currentQuestionIndex].style.display = 'block';
 
-		        // 1번 문제에 도달하면 뒤로가기 버튼 숨기기
-		        if (currentQuestionIndex === 0) {
-		            backButton.style.display = 'none';
-		        }
-		    }
-		}
+        // 1번 문제에 도달하면 뒤로가기 버튼 숨기기
+        if (currentQuestionIndex === 0) {
+            backButton.style.display = 'none';
+        }
+    }
+}
 
 	  /*   // 문제를 모두 푼 후에 사용자의 선택을 표시하는 함수
 	    function showUserChoices() {
