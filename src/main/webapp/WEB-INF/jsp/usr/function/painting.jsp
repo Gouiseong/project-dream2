@@ -17,12 +17,13 @@
 			색변경
 			<input type="color" id="colorPicker">
 		</span>
-		<input type="range" id="thicknessSlider" min="1" max="10" value="3"> <!-- 선 두께 조절 슬라이더 -->
+		<input type="range" id="thicknessSlider" min="1" max="10" value="3">
+		<!-- 선 두께 조절 슬라이더 -->
 		<button id="clearBtn">모두 지우기</button>
 		<input type="file" id="fileInput">
 	</div>
 	<canvas id="canvas" width="1500" height="800"></canvas>
-	<button id="saveBtn"><a href="../function/painting">저장하기</a></button>
+	<button id="saveBtn">저장하기</button>
 
 	<script>
         window.onload = function() {
@@ -120,19 +121,29 @@
             });
             
          // 저장하기 버튼 클릭 시 이벤트 핸들러
-            document.getElementById('saveBtn').addEventListener('click', function() {
-                // 그림판 이미지를 데이터 URL로 변환
-                const imageDataURL = canvas.toDataURL('image/png');
+         document.getElementById('saveBtn').addEventListener('click', function() {
+   			var imageDataURL = canvas.toDataURL('image/png');
+    		var data = { image: imageDataURL };
 
-                // 변환된 데이터 URL을 다운로드 링크로 만들어 사용자에게 제공
-                const downloadLink = document.createElement('a');
-                downloadLink.href = imageDataURL;
-                downloadLink.download = 'drawing.png'; // 파일명 지정
-                document.body.appendChild(downloadLink);
-                downloadLink.click();
-                document.body.removeChild(downloadLink);
-            });
-         
+    		// 서버로 이미지 전송
+    		   			 fetch('/usr/function/painting/saveimage', {
+    		       		 method: 'POST',
+    		       		 headers: {
+    		         		   'Content-Type': 'application/json'
+    		      		  },
+    		   		     body: JSON.stringify(data)
+    		   		 })
+    		   		 .then(response => {
+    		   		     if (response.ok) {
+    		    		        console.log('Image saved successfully.');
+    		    		    } else {
+    		    		        console.error('Failed to save image.');
+    		    		    }
+    		   		 })
+    		   		 .catch(error => {
+    		   		     console.error('Error saving image:', error);
+    		   		 });
+    				});
            /* 컨트롤 + z 키를 눌렀을때 그렸던 선을 한 번 지우고 되돌리는 기능(안됨 보류) 
               document.addEventListener('keyup', function(event) {
                 if (event.ctrlKey && event.key === 'z') {

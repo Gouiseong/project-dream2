@@ -11,8 +11,14 @@ public class FunctionService {
 
 	@Autowired
 	private FunctionRepository functionRepository;
+	
 	public FunctionService(FunctionRepository functionRepository) {
 		this.functionRepository = functionRepository;
+	}
+	public void saveImage(byte[] imageData) {
+
+		return functionRepository.saveImage(imageData);
+		
 	}
 	
 }

@@ -329,6 +329,12 @@ ON R.id = RP_SUM.relId
 SET R.goodReactionPoint = RP_SUM.goodReactionPoint,
 R.badReactionPoint = RP_SUM.badReactionPoint;
 
+CREATE TABLE image(
+    id INT(10) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    imageData BLOB,
+    memberId INT(10) UNSIGNED NOT NULL, 
+    regDate DATETIME NOT NULL
+    );
 ###############################################
 
 SELECT * FROM article;

@@ -1,30 +1,20 @@
 package com.example.demo.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.example.demo.service.ArticleService;
-import com.example.demo.service.BoardService;
-import com.example.demo.service.ReactionPointService;
-import com.example.demo.service.ReplyService;
-import com.example.demo.util.Ut;
-import com.example.demo.vo.Article;
-import com.example.demo.vo.Board;
-import com.example.demo.vo.Reply;
-import com.example.demo.vo.ResultData;
-import com.example.demo.vo.Rq;
+import com.example.demo.service.FunctionService;
 
-import jakarta.servlet.http.HttpServletRequest;
 
 @Controller
 public class UsrFunctionController {
 
+	@Autowired
+	private FunctionService functionService;
+
+	
 	public UsrFunctionController() {
 
 	}
@@ -36,7 +26,7 @@ public class UsrFunctionController {
 
 		return "usr/function/painting";
 	}
-	
+
 //	@RequestMapping("/usr/function/savepainting")
 //	public String showList(HttpServletRequest req, Model model, @RequestParam(defaultValue = "1") int boardId,
 //			@RequestParam(defaultValue = "1") int page,
@@ -74,17 +64,23 @@ public class UsrFunctionController {
 //
 //		return "usr/article/list";
 //	}
-	
+
 	@RequestMapping("/usr/function/psychological_test")
 	public String doPsycho_Test() {
 
 		return "usr/function/psychological_test";
 	}
-	
 
 	@RequestMapping("/usr/function/calendar")
 	public String showCalendar() {
 		return "usr/function/calendar";
 	}
-	
+
+	@RequestMapping("/usr/function/painting/saveimage")
+	public String saveImage(@RequestBody byte[] imageData) {
+		functionService.saveImage(imageData);
+		
+		return "usr/function/painting";
+	}
+
 }

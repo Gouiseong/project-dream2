@@ -87,13 +87,11 @@
 				<!-- 게시글들 -->
 				<a href="">
 
-					<c:if test="${rq.isLogined() }">
-
+				
 						<a class="hover:underline" href="../article/write">
 							<span class="write-btn">글쓰기</span>
 						</a>
 
-					</c:if>
 				</a>
 				<table class="article_write">
 					<colgroup>
