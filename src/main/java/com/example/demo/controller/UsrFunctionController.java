@@ -3,8 +3,10 @@ package com.example.demo.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 
 import com.example.demo.service.FunctionService;
 
@@ -16,8 +18,8 @@ public class UsrFunctionController {
 	private FunctionService functionService;
 
 	
-	public UsrFunctionController() {
-
+	public UsrFunctionController(FunctionService functionService) {
+		this.functionService = functionService;
 	}
 
 	// 액션 메서드
@@ -75,13 +77,6 @@ public class UsrFunctionController {
 	@RequestMapping("/usr/function/calendar")
 	public String showCalendar() {
 		return "usr/function/calendar";
-	}
-
-	@RequestMapping("/usr/function/painting/saveimage")
-	public String saveImage(@RequestBody byte[] imageData) {
-		functionService.saveImage(imageData);
-		
-		return "usr/function/painting";
 	}
 	
 	// 이건 url만 가져오는거 나중에 배열로 만들어서 이미지랑 등록날짜 

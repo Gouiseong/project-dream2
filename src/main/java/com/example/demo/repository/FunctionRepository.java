@@ -20,7 +20,7 @@ public interface FunctionRepository {
 	@Select("""
 			SELECT imageData
 			FROM image
-			WHERE id = 1
+			WHERE memberId = 123
 			""")
 	public String getImageUrl();
 

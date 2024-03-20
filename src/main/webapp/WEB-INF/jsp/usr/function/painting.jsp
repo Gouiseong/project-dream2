@@ -121,30 +121,37 @@
             });
             
          // 저장하기 버튼 클릭 시 이벤트 핸들러
-         document.getElementById('saveBtn').addEventListener('click', function() {
-   			var imageDataURL = canvas.toDataURL('image/png');
-    		var data = imageDataURL;
-				console.log("imageDataURL : ",imageDataURL);
-    		// 서버로 이미지 전송
-    		   			 fetch('/usr/function/painting/saveimage', {
-    		       		 method: 'POST',
-    		       		 headers: {
-    		         		   'Content-Type': 'application/json'
-    		      		  },
-    		   		     body: JSON.stringify(imageDataURL)
-    		   		 })
-    		   		 .then(response => {
-    		   		     if (response.ok) {
-    		   		    	 	alert("그림이 저장되었습니다.")
-    		    		        console.log('저장성공.');
-    		    		    } else {
-    		    		        console.error('저장실패.');
-    		    		    }
-    		   		 })
-    		   		 .catch(error => {
-    		   		     console.error('Error saving image:', error);
-    		   		 });
-    				});
+        document.getElementById('saveBtn').addEventListener('click', function() {
+        	var imageDataURL = canvas.toDataURL('image/png');
+            console.log("imageDataURL : ",imageDataURL);
+            
+            // 이미지 데이터를 Blob으로 변환
+            fetch(imageDataURL)
+                .then(response => response.blob())
+                .then(blob => {
+                    // 서버로 Blob 데이터 직접 전송
+                    var formData = new FormData();
+                    formData.append('image', blob, 'image.png');
+                    
+                    return fetch('/usr/function/painting/saveimage', {
+                        method: 'POST',
+                        body: formData
+                    });
+                })
+                .then(response => {
+                    if (response.ok) {
+                        alert("그림이 저장되었습니다.");
+                        console.log('저장성공.');
+                    } else {
+                        console.error('저장실패.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error saving image:', error);
+                });
+        });
+   
+
            /* 컨트롤 + z 키를 눌렀을때 그렸던 선을 한 번 지우고 되돌리는 기능(안됨 보류) 
               document.addEventListener('keyup', function(event) {
                 if (event.ctrlKey && event.key === 'z') {
