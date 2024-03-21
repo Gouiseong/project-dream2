@@ -120,8 +120,15 @@
                 context.lineWidth = parseInt(this.value);
             });
             
+       		
+       	 // todo		
+         // 저장하기 버튼 클릭시 안에서 if문으로 로그인 상태 확인하려는데 
+         // 저장하기 버튼을 눌러도 아무것도 안뜸 
+         
          // 저장하기 버튼 클릭 시 이벤트 핸들러
         document.getElementById('saveBtn').addEventListener('click', function() {
+        	
+        	
         	var imageDataURL = canvas.toDataURL('image/png');
             console.log("imageDataURL : ",imageDataURL);
             
@@ -129,14 +136,21 @@
             fetch(imageDataURL)
                 .then(response => response.blob())
                 .then(blob => {
-                    // 서버로 Blob 데이터 직접 전송
-                    var formData = new FormData();
-                    formData.append('image', blob, 'image.png');
-                    
-                    return fetch('/usr/function/painting/saveimage', {
-                        method: 'POST',
-                        body: formData
-                    });
+                	 // 로그인 상태 확인 후 동작 수행
+                    if (rq.loginedMember != null) {
+                    	var formData = new FormData();
+                        formData.append('image', blob, 'image.png');
+                        
+                        return fetch('/usr/function/painting/saveimage', {
+                            method: 'POST',
+                            body: formData
+                        });
+                        
+                    } else {
+                        // 로그인이 안 되어 있을 때 알림 메시지 표시
+                        alert('로그인 후 이용해주세요.');
+                    }
+
                 })
                 .then(response => {
                     if (response.ok) {
@@ -150,7 +164,8 @@
                     console.error('Error saving image:', error);
                 });
         });
-   
+       		
+       
 
            /* 컨트롤 + z 키를 눌렀을때 그렸던 선을 한 번 지우고 되돌리는 기능(안됨 보류) 
               document.addEventListener('keyup', function(event) {

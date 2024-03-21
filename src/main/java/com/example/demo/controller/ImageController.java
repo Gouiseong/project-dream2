@@ -1,16 +1,23 @@
 package com.example.demo.controller;
 import java.io.IOException;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.example.demo.service.FunctionService;
+import com.example.demo.vo.Rq;
+
+import jakarta.servlet.http.HttpServletRequest;
 
 @RestController
 public class ImageController {
 
+	@Autowired
+	private Rq rq;
+	
     private final FunctionService functionService;
 
     public ImageController(FunctionService functionService) {
@@ -18,7 +25,10 @@ public class ImageController {
     }
 
     @PostMapping("/usr/function/painting/saveimage")
-    public String saveImage(@RequestParam("image") MultipartFile image) {
+    public String saveImage(@RequestParam("image") MultipartFile image,HttpServletRequest req) {
+    	
+    	Rq rq = (Rq) req.getAttribute("rq");
+    	
         try {
             byte[] imageData = image.getBytes();
             functionService.saveImage(imageData);

@@ -13,14 +13,14 @@ public interface FunctionRepository {
 			image SET
 			regDate = NOW(),
 			imageData = #{imageData},
-			memberId = 123
+			memberId = 1
 			""")
 	public void saveImage(byte[] imageData);
 
 	@Select("""
 			SELECT imageData
 			FROM image
-			WHERE memberId = 123
+			WHERE memberId = 1
 			""")
 	public String getImageUrl();
 

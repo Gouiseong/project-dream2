@@ -20,5 +20,6 @@ public class Member {
 	private String email;
 	private boolean delStatus;
 	private String delDate;
+	private int imageId;
 
 }

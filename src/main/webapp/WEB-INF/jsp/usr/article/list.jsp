@@ -85,14 +85,10 @@
 
 			<div class="center">
 				<!-- 게시글들 -->
-				<a href="">
-
-				
 						<a class="hover:underline" href="../article/write">
 							<span class="write-btn">글쓰기</span>
 						</a>
-
-				</a>
+			
 				<table class="article_write">
 					<colgroup>
 						<col style="width: 10%" />
