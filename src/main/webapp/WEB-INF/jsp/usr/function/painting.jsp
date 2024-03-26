@@ -2,6 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="pageTitle" value="painting"></c:set>
 <%@ include file="../common/head.jspf"%>
+<%@ page import="com.example.demo.vo.Rq" %>
 
 <!DOCTYPE html>
 <html>
@@ -10,6 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<button onClick="../usr/memeber/login">로그인</button>
 	<div class="painting-btn-container">
 		<button id="drawBtn">그리기</button>
 		<button id="eraseBtn">지우개</button>
@@ -27,6 +29,7 @@
 
 	<script>
         window.onload = function() {
+        
             var canvas = document.getElementById('canvas');
             var context = canvas.getContext('2d');
             var isDrawing = false;
@@ -34,6 +37,8 @@
             var prevY = 0;
             var color = '#000';
             var lines = []; // 선 배열 추가
+           
+         
 
             context.imageSmoothingEnabled = false;
             
@@ -137,7 +142,7 @@
                 .then(response => response.blob())
                 .then(blob => {
                 	 // 로그인 상태 확인 후 동작 수행
-                    if (rq.loginedMember != null) {
+                    if ( rq.isLogined) {
                     	var formData = new FormData();
                         formData.append('image', blob, 'image.png');
                         

@@ -1,7 +1,8 @@
-package com.example.demo.vo;
+ package com.example.demo.vo;
 
 import java.io.IOException;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
@@ -28,7 +29,8 @@ public class Rq {
 
 	private HttpServletRequest req;
 	private HttpServletResponse resp;
-
+	
+	
 	public Rq(HttpServletRequest req, HttpServletResponse resp, MemberService memberService) {
 		this.req = req;
 		this.resp = resp;
