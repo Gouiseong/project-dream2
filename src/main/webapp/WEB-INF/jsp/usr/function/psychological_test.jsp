@@ -229,9 +229,11 @@
 			<button id="backButton" style="display: none;">이전 문제</button>
 			<button id="nextButton" style="display: inline-block;">다음 문제</button>
 			<button id="finishButton" style="display: none;">종료</button>
+			<button id="saveButton" style="display: none;">저장하기</button>
 			<a href="../home/main" id="main-btn-link">
 				<div class="main-btn">메인으로...</div>
 			</a>
+			
 
 
 			<div id="result-box" style="display: none;">
@@ -321,9 +323,32 @@
 		document.getElementById('finishButton').addEventListener('click',
 				analyzeResults);
 		// 뒤로가기 버튼에 클릭 이벤트 리스너 추가
+		
+		// 저장하기 버튼 누르면 db에 저장되게 
+		document.getElementById('saveButton').addEventListener('click',
+				saveQuestion);
+				
 		document.getElementById('backButton').addEventListener('click', goBack);
 
 		
+		// 저장하기버튼 클릭시 db에 저장되는 함수
+		function saveQuestion(){
+			 // 분석 결과 가져오기
+		    var analysisResult = resultDiv.innerHTML;
+
+		    // AJAX 요청을 통해 서버에 분석 결과를 전송하고 저장
+		    var ajax = new XMLHttpRequest();
+		    ajax.onreadystatechange = function() {
+		        if (ajax.readyState == 4 && ajax.status == 200) {
+		            // 서버 응답을 확인하고 필요한 경우 추가 작업 수행
+		            console.log('분석 결과가 성공적으로 저장되었습니다.');
+		            // 여기에 추가적인 작업을 수행할 수 있습니다.
+		        }
+		    };
+		    ajax.open("POST", "save_analysis_result.php", true); // 서버의 저장 처리를 담당하는 스크립트 경로를 설정해야 합니다.
+		    ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		    ajax.send("result=" + encodeURIComponent(analysisResult)); // 결과를 URL 인코딩하여 전송
+		}
 		// 다음 문제로 넘어가는 함수
 		function showNextQuestion() {
 			 // 현재 보여지고 있는 문제의 선택지 확인
@@ -368,6 +393,9 @@
 		// 결과 분석 함수
 		function analyzeResults() {
 			var result = "";
+			document.getElementById('backButton').style.display = 'none';
+			document.getElementById('finishButton').style.display = 'none';
+			document.getElementById('saveButton').style.display = 'inline-block';
 			for (var i = 0; i < userChoices.length; i++) {
 			    var choiceIndex = parseInt(userChoices[i]);
 			    console.log((i + 1) + "번 질문의 선택: " + userChoices[i]); // 사용자의 선택 값 출력
@@ -378,7 +406,7 @@
 			        result += (i + 1) + "번 질문의 해석: 선택한 값이 유효하지 않습니다.<br>";
 			    } else {
 			        console.log((i + 1) + "번 질문의 선택한 번호와 해석: " + interpretation[i][choiceIndex]); // 올바른 해석 결과 출력
-			        result += (i + 1) + "번 질문의 해석: " + interpretation[i][choiceIndex] + "<br>";
+			        result += interpretation[i][choiceIndex] + "<br>";
 			    }
 			}
 			
