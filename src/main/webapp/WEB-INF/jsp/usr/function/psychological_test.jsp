@@ -4,6 +4,8 @@
 <c:set var="pageTitle" value="psychological_test"></c:set>
 <%@ include file="../common/head.jspf"%>
 <!DOCTYPE html>
+
+<%@ page import="java.sql.*"%>
 <html>
 <head>
 <meta charset="EUC-KR">
@@ -233,7 +235,7 @@
 			<a href="../home/main" id="main-btn-link">
 				<div class="main-btn">메인으로...</div>
 			</a>
-			
+
 
 
 			<div id="result-box" style="display: none;">
@@ -332,7 +334,7 @@
 
 		
 		// 저장하기버튼 클릭시 db에 저장되는 함수
-		function saveQuestion(){
+	 	function saveQuestion(){
 			 // 분석 결과 가져오기
 		    var analysisResult = resultDiv.innerHTML;
 
@@ -348,7 +350,8 @@
 		    ajax.open("POST", "save_analysis_result.php", true); // 서버의 저장 처리를 담당하는 스크립트 경로를 설정해야 합니다.
 		    ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 		    ajax.send("result=" + encodeURIComponent(analysisResult)); // 결과를 URL 인코딩하여 전송
-		}
+		} 
+		
 		// 다음 문제로 넘어가는 함수
 		function showNextQuestion() {
 			 // 현재 보여지고 있는 문제의 선택지 확인
@@ -455,35 +458,9 @@
             backButton.style.display = 'none';
         }
     }
-}
+		}
 
-	  /*   // 문제를 모두 푼 후에 사용자의 선택을 표시하는 함수
-	    function showUserChoices() {
-	        for (var i = 0; i < questions.length; i++) {
-	            var radios = questions[i].querySelectorAll('input[type="radio"]');
-	            for (var j = 0; j < radios.length; j++) {
-	                // 사용자가 선택한 번호가 있다면 해당 라디오 버튼을 체크 상태로 변경
-	                if (userChoices[i] === radios[j].value) {
-	                    radios[j].checked = true;
-	                }
-	            }
-	        }
-	    }
-
-	    // 각 문제의 선택지에 대한 클릭 이벤트 리스너 추가
-	    for (var i = 0; i < questions.length; i++) {
-	        var radios = questions[i].querySelectorAll('input[type="radio"]');
-	        for (var j = 0; j < radios.length; j++) {
-	            radios[j].addEventListener('click', function(event) {
-	                // 라디오 버튼을 클릭하면 해당 선택을 사용자의 선택으로 저장
-	                var questionIndex = Array.prototype.indexOf.call(questions, event.target.closest('.question'));
-	                userChoices[questionIndex] = event.target.value;
-	            });
-	        }
-	    }
-
-	    // 문제를 모두 푼 후에 사용자의 선택 표시 함수 호출
-	    showUserChoices(); */
+ 
 	</script>
 
 	<%@ include file="../common/foot.jspf"%>

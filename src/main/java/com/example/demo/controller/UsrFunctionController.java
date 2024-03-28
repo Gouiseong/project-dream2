@@ -1,15 +1,17 @@
 package com.example.demo.controller;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.service.FunctionService;
-
 
 @Controller
 public class UsrFunctionController {
@@ -17,7 +19,6 @@ public class UsrFunctionController {
 	@Autowired
 	private FunctionService functionService;
 
-	
 	public UsrFunctionController(FunctionService functionService) {
 		this.functionService = functionService;
 	}
@@ -30,6 +31,43 @@ public class UsrFunctionController {
 		return "usr/function/painting";
 	}
 
+	@RequestMapping("")
+	public String saveQuestion(@RequestParam("result") String analysisResult) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+
+		String url = "jdbc:mysql://localhost:3306/DBMS_gus";
+		String username = "root";
+		String password = "";
+
+		try {
+			// 데이터베이스 연결
+			Class.forName("com.mysql.jdbc.Driver");
+			conn = DriverManager.getConnection(url, username, password);
+
+			// SQL 쿼리 작성 및 실행
+//			String sql = "INSERT INTO psychological_test SET answer = "아따맘마",
+//    memberId = 2;";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, analysisResult);
+			pstmt.executeUpdate();
+
+			System.out.println("분석 결과가 성공적으로 저장되었습니다.");
+		} catch (Exception e) {
+			System.out.println("오류: " + e.getMessage());
+			// 연결 해제
+			try {
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (SQLException ex) {
+				System.out.println("오류: " + ex.getMessage());
+				// 예외 발생 시 처리할 내용을 작성합니다.
+			}
+		}
+		return "123";
+	}
 //	@RequestMapping("/usr/function/savepainting")
 //	public String showList(HttpServletRequest req, Model model, @RequestParam(defaultValue = "1") int boardId,
 //			@RequestParam(defaultValue = "1") int page,
@@ -78,14 +116,14 @@ public class UsrFunctionController {
 	public String showCalendar() {
 		return "usr/function/calendar";
 	}
-	
-	// 이건 url만 가져오는거 나중에 배열로 만들어서 이미지랑 등록날짜 
+
+	// 이건 url만 가져오는거 나중에 배열로 만들어서 이미지랑 등록날짜
 	// 회원번호까지 가져오게 할수있을듯
 	@RequestMapping("/usr/function/testimage")
 	public String testimg(Model model) {
-		String imageUrl= functionService.getImageUrl();
-		model.addAttribute("imageUrl",imageUrl);
-		
+		String imageUrl = functionService.getImageUrl();
+		model.addAttribute("imageUrl", imageUrl);
+
 		return "usr/function/testimage";
 	}
 
