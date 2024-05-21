@@ -38,6 +38,7 @@
 
 html>body {
 	font-family: 'LotteMartDream', sans-serif;
+	
 }
 
 /* 라이브러리 */
@@ -333,37 +334,7 @@ body {
 	border: solid 1px black;
 	border-radius: 10px;
 }
-/* 시계 임시 보류 .. */
-/* .clock {
-	height: 60px;
-	color: white;
-	font-family: sans-serif;
-	display: flex;
-	overflow: hidden;
-	position: relative;
-	margin-right: 200px;
-}
 
-.clock>div {
-	display: flex;
-}
-
-.tick {
-	line-height: 7vh;
-}
-
-.tick-hidden {
-	opacity: 0;
-}
-
-.move {
-	animation: move linear 1s infinite;
-}
-
-.number, .tick {
-	font-size: 48px;
-	color: black;
-} */
 /* 게시판 페이지 로고*/
 .board-item a:hover {
 	text-decoration: underline;
@@ -663,6 +634,165 @@ overflow-x:hidden;
 	margin-bottom: 5px;
 }
 
+/* write jsp css */
+
+/* 글쓰기 배경 css */
+.write-background{
+	display:flex;
+	background-color: #1C1334;
+	width:100%;
+	height: 100%;
+	padding-top: 50px;
+	
+}
+/* 글쓰기 화면 분할 */
+.write-background-left{
+	flex:1;
+
+	width:50%;
+	height:90%;
+	margin-left: 50px;
+}
+.write-background-right{
+	flex:1;
+
+	width:50%;
+	height:90%;
+	margin-right: 50px;
+}
+
+/* 날짜 상단 박스 */
+.write-date-container{
+	display:flex;
+	height:110px;
+}
+/* 날짜 박스*/
+.write-date-box{
+	background-color: #4C4462;
+	width:300px;
+	height:80px;
+	border-radius:10px;
+	margin-left: auto;
+	margin-right: 20px;
+}
+/* 날짜 */
+.write-date{
+	text-align:center;
+	font-size:28px;
+	height:50%;
+	color: white;
+}
+
+/* 요일 */
+.write-day{
+	text-align:center;
+	font-size:28px;
+	height:50%;
+	color: white;
+}
+
+/* 취침,기상 시간 박스 */
+.sleep-box{
+	display:flex;
+	background-color: #4C4462;
+	width:500px;
+	height:80px;
+	margin-right: auto;
+	margin-left: 20px;
+	border-radius:10px;
+}
+.sleep-time{
+	flex:1;
+	margin-left: 10px;
+	width:250px;
+	height:80px;
+	text-align:center;
+	padding: 5px;
+	font-size:24px;
+	border-right: solid 1px black;
+}
+.wake-up-time{
+	flex:1;
+	margin-right: 10px;
+	width:250px;
+	height:80px;
+	text-align:center;
+	padding: 5px;
+	font-size:24px;
+	border-left: solid 1px black;
+}
+#sleepTime, #wakeUpTime{
+	border-radius:5px;
+	font-size:20px;
+}
+.sleep-text{
+	color:white;
+}
+
+/* 제목, 내용 박스 */
+.title-body-container{
+	margin: 0 30px;
+	height: 65%;
+	 flex-direction: column;
+}
+
+.write-form{
+	width:100%;
+	height:100%;
+}
+.title-box{
+	border: solid 1px gray;
+	height: 15%;
+	width:100%;
+	font-size:40px;
+}
+.body-box{
+	border: solid 1px gray;
+	height: 85%;
+	width:100%;
+	font-size:40px;
+	
+}
+.title-input{
+    width: 100%; /* 너비에서 내부 패딩과 테두리의 너비를 제외 */
+    height: 100%; /* 높이에서 내부 패딩과 테두리의 높이를 제외 */
+    box-sizing: border-box; /* 내부 패딩과 테두리를 요소의 크기에 포함시킴 */
+    padding: 5px; /* 내부 패딩 추가 */
+    font-size: 40px; /* 글꼴 크기 조정 */
+    border: none; /* 테두리 제거 */
+    outline: none; /* 포커스 효과 제거 */
+    background-color: transparent; /* 배경색 투명 */
+    color:white;
+}
+
+.body-input{
+	width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 5px;
+    font-size: 40px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    resize: none;
+    color:white;
+}
+
+.register{
+	position:absolute;
+	margin-top: 10px;
+	margin-left: 750px;
+	width:100px;
+}
+/* 뒤로가기 버튼 */
+.write-back-btn{
+	position:absolute;
+	margin-top: 628px;
+	margin-left: 80px;
+	
+
+
+}
 /* painting jsp css */
 .painting-btn-container{
 	margin-top:5px;
@@ -932,6 +1062,7 @@ height: 50px; /* 필요에 따라 조정 */
 	margin-bottom: 2rem;
 }
 
+/* calendar jsp css */
 /* 캘린더 화면 사이드바 */
 
 .main-wrapper{
@@ -1018,10 +1149,9 @@ height: 50px; /* 필요에 따라 조정 */
 }
 
 .content-wrapper {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-		url(https://blog.kakaocdn.net/dn/WlqoE/btqu6zeWoNa/3AimU1hyjMZJYFymei0md0/img.jpg);
 	flex-grow:1;
-	margin-left: 255px;
+	margin-right: 40px;
+
 }
 
 #table-body .col:hover {

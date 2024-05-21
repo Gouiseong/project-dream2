@@ -42,9 +42,7 @@
 					</li>
 				</c:if>
 				<c:if test="${rq.isLogined() }">
-					<li>
-						<a class="hover:underline" href="../article/write">글 쓰기</a>
-					</li>
+					
 
 					<li class="hover:underline">
 						<div>
