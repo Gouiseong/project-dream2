@@ -32,8 +32,10 @@ public class UsrFunctionController {
 	// 액션 메서드
 
 	@RequestMapping("/usr/function/painting")
-	public String doPaint() {
+	public String doPaint(HttpServletRequest req,Model model) {
 
+		Rq rq = (Rq) req.getAttribute("rq");
+		model.addAttribute("isLogined", (rq != null && rq.isLogined()));
 		return "usr/function/painting";
 	}
 

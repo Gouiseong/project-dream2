@@ -5,44 +5,17 @@
 <link href='https://fonts.googleapis.com/css?family=Exo+2:400,100' rel='stylesheet' type='text/css'>
 <!-- daisy ui 불러오기 -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/daisyui/4.6.1/full.css" />
-
+<%@ include file="../common/head.jspf"%>
 
 <c:set var="loggedInMemberName" value="${rq.loginedMember.name}"></c:set>
 <c:set var="loggedInMemberId" value="${rq.loginedMember.loginId}"></c:set>
 
-
-
-
-<header class="header">
-	<a href="../home/main">
-		<button class="logo">로고</button>
-	</a>
-	<nav class="header_menu">
-		<a href="../member/myInfo">
-			<button class="username">${loggedInMemberName}님</button>
-		</a>
-
-		<a href="../conference/list">
-			<button class="hd_info">학회 정보</button>
-		</a>
-		<a href="../competition/list">
-			<button class="hd_contest">공모전</button>
-		</a>
-		<a href="../hotel/recommendlist">
-			<button class="hd_recommend">숙박&교통</button>
-		</a>
-		<c:if test="${rq.isLogined() }">
-			<a onclick="if(confirm('로그아웃 하시겠어요?') == false) return false;" class="hd_logout" href="../member/doLogout">로그아웃</a>
-		</c:if>
-	</nav>
-</header>
-
-<div class="img"></div>
 <div class="menu_box1 left">
 	<div class="mypage">마이 페이지</div>
-</div>
+	</div>
+	<div>내 일정</div>
 <div class="right">
-	<a href="../member/mySchedule">
+	<a href="../function/calendar">
 		<button class="menu_box2 myschedule">내 일정</button>
 	</a>
 	<a href="../member/myInfo">
@@ -81,7 +54,7 @@
 </div>
 
 <div class="info_box info_withdraw">
-	<div class="info1">탇퇴</div>
+	<div class="info1">탈퇴</div>
 
 <!-- 탈퇴하기 버튼, 한 번만 선언합니다 -->
 <button class="info2 withdraw_btn" onclick="return confirmWithdrawal();">탈퇴하기</button>
@@ -151,9 +124,9 @@ body {
 }
 
 /* 메뉴 박스 */
-.menu_box1, .menu_box2 {
+.menu_box1 ,.menu_box2{
 	border-radius: 18px;
-	background: #00256c;
+	background: #AD88C6;
 	color: white;
 	text-align: center;
 	display: inline-block;
