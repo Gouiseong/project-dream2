@@ -1,16 +1,21 @@
 package com.example.demo.controller;
 
+import java.security.Principal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.demo.service.ArticleService;
 import com.example.demo.service.BoardService;
+import com.example.demo.service.FunctionService;
 import com.example.demo.service.ReactionPointService;
 import com.example.demo.service.ReplyService;
 import com.example.demo.util.Ut;
@@ -25,6 +30,9 @@ import jakarta.servlet.http.HttpServletRequest;
 @Controller
 public class UsrFunctionController {
 
+	@Autowired
+	private FunctionService functionService;
+	
 	public UsrFunctionController() {
 
 	}
@@ -40,11 +48,15 @@ public class UsrFunctionController {
 	}
 
 	@RequestMapping("/usr/function/savepainting")
-	public Object saveImage() {
+	public Object saveImage(@RequestBody String imageDataURL, Principal principal) {
 		
-		System.out.println("하이");
-		System.out.println(123123);
-		return "usr/function/painting";
+		 try {
+	            String username = principal.getName(); // 현재 로그인한 사용자의 이름 가져오기
+	            functionService.saveImage(username, imageDataURL); // 이미지를 데이터베이스에 저장
+	            return ResponseEntity.ok("이미지가 성공적으로 업로드되었습니다.");
+	        } catch (Exception e) {
+	            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("이미지 업로드 중 오류가 발생했습니다.");
+	        }
 	}
 	
 	

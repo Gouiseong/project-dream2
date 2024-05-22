@@ -14,5 +14,10 @@ public class FunctionService {
 	public FunctionService(FunctionRepository functionRepository) {
 		this.functionRepository = functionRepository;
 	}
+	public void saveImage(String username, String imageDataURL) {
+
+		functionRepository.saveImage(username,imageDataURL);
+		
+	}
 	
 }

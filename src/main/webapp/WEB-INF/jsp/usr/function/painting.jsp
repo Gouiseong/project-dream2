@@ -145,13 +145,31 @@ boolean isLogined = (boolean) request.getAttribute("isLogined"); //로그인 상
 						const imageDataURL = canvas.toDataURL('image/png');
 
 							
-							// 변환된 데이터 URL을 다운로드 링크로 만들어 사용자에게 제공
+						 // 서버로 이미지 데이터 전송
+				        fetch('/usr/function/savepainting', {
+				            method: 'POST',
+				            body: JSON.stringify(imageDataURL),
+				            headers: {
+				                'Content-Type': 'application/json'
+				            }
+				        })
+				        .then(response => {
+				            if (response.ok) {
+				                alert("이미지가 성공적으로 업로드되었습니다.");
+				            } else {
+				                throw new Error("이미지 업로드 중 오류가 발생했습니다.");
+				            }
+				        })
+				        .catch(error => {
+				            alert(error.message);
+				        });
+							/* // 변환된 데이터 URL을 다운로드 링크로 만들어 사용자에게 제공
 							const downloadLink = document.createElement('a');
 							downloadLink.href = imageDataURL;
 							downloadLink.download = 'drawing.png'; // 파일명 지정
 							document.body.appendChild(downloadLink);
 							downloadLink.click();
-							document.body.removeChild(downloadLink);
+							document.body.removeChild(downloadLink); */
 						}
 						else{
 							alert("로그인 후 저장 가능");
