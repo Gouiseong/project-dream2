@@ -9,12 +9,11 @@ public interface FunctionRepository {
 
 	@Insert("""
 			INSERT INTO
-			`member` SET
+			image SET
 			regDate = NOW(),
-			updateDate = NOW(),
 			memberId = #{memberId},
-			title = #{title}, `body` = #{body}
+			img = #{imageDataURL}
 			""")
-	public void saveImage(String username, String imageDataURL);
+	public void saveImage(int memberId, String imageDataURL);
 
 }

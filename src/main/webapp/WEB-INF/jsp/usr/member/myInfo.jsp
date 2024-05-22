@@ -11,7 +11,7 @@
 <c:set var="loggedInMemberId" value="${rq.loginedMember.loginId}"></c:set>
 
 <div class="menu_box1 left">
-	<div class="mypage">마이 페이지</div>
+	<div class="mypage">내 정보</div>
 	</div>
 	<div>내 일정</div>
 <div class="right">

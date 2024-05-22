@@ -48,11 +48,17 @@ public class UsrFunctionController {
 	}
 
 	@RequestMapping("/usr/function/savepainting")
-	public Object saveImage(@RequestBody String imageDataURL, Principal principal) {
+	public Object saveImage(HttpServletRequest req,@RequestBody String imageDataURL, Principal principal) {
+		Rq rq = (Rq) req.getAttribute("rq");
 		
+		 // 양쪽 끝 따옴표 제거
+        if (imageDataURL.startsWith("\"") && imageDataURL.endsWith("\"")) {
+            imageDataURL = imageDataURL.substring(1, imageDataURL.length() - 1);
+        }
+        
 		 try {
-	            String username = principal.getName(); // 현재 로그인한 사용자의 이름 가져오기
-	            functionService.saveImage(username, imageDataURL); // 이미지를 데이터베이스에 저장
+			 int memberId = rq.getLoginedMemberId();
+	            functionService.saveImage(memberId, imageDataURL); // 이미지를 데이터베이스에 저장
 	            return ResponseEntity.ok("이미지가 성공적으로 업로드되었습니다.");
 	        } catch (Exception e) {
 	            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("이미지 업로드 중 오류가 발생했습니다.");

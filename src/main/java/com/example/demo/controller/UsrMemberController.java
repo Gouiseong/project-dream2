@@ -135,6 +135,12 @@ public class UsrMemberController {
 
 		return "usr/member/myPage";
 	}
+	
+	@RequestMapping("/usr/member/myInfo")
+	public String showMyInfo() {
+
+		return "usr/member/myInfo";
+	}
 
 	@RequestMapping("/usr/member/checkPw")
 	public String showCheckPw() {
