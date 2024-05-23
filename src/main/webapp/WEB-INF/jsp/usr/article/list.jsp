@@ -4,9 +4,184 @@
 <%@ include file="../common/head.jspf"%>
 <body onload="initClock()">
 	
+<style>
 
+.list-background-img {
+    background-image: url('your-image.jpg'); /* 배경 이미지 설정 */
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+}
+
+.search_box_form_background {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.flex-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#timedate a {
+    font-size: 1.2em;
+    color: #333;
+}
+
+.search_box_form {
+    display: flex;
+    align-items: center;
+}
+
+.search_box {
+    margin-left: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search_btn {
+    margin-left: 10px;
+    padding: 5px 10px;
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search_btn:hover {
+    background-color: #4cae4c;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.left, .right {
+    width: 20%;
+}
+
+.center {
+    width: 60%;
+}
+
+.board-list-container {
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.board-list-text {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.board-item-background {
+    list-style: none;
+    padding: 0;
+}
+
+.board-item {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.board-item a {
+    text-decoration: none;
+    color: #333;
+}
+
+.board-item a:hover {
+    text-decoration: underline;
+}
+
+.write-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #5cb85c;
+    color: white;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    text-decoration: none;
+}
+
+.write-btn:hover {
+    background-color: #4cae4c;
+}
+
+.article_write {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.article_write th, .article_write td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.article_write th {
+    background-color: #f8f8f8;
+}
+
+.article_write tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.pagination {
+    margin-top: 20px;
+}
+
+.btn-group {
+    display: flex;
+    gap: 5px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #333;
+    background-color: #fff;
+}
+
+.btn:hover {
+    background-color: #f0f0f0;
+}
+
+.btn-active {
+    background-color: #5cb85c;
+    color: white;
+    border-color: #4cae4c;
+}
+
+.login-btn-container {
+    margin-bottom: 20px;
+}
+
+.login-btn-container a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #5bc0de;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.login-btn-container a:hover {
+    background-color: #31b0d5;
+}
+</style>
 <div class="list-background-img" >
-
 	<div class="search_box_form_background">
 		<!-- <div class="clock">
 			<div class="hours">

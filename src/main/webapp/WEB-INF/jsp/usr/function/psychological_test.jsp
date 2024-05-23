@@ -9,6 +9,25 @@
 <meta charset="EUC-KR">
 <title>Psychological_test</title>
 </head>
+<style>
+
+    .psychological-test-background {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+    }
+    .psychological-test-container {
+        
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        width: 100%;
+        
+    }
+</style>
 <body>
 	<div class="psychological-test-background">
 		<section class="psychological-test-container">

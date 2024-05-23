@@ -14,7 +14,7 @@
 	<div class="mypage">마이 페이지</div>
 	</div>
 	<div>내 일정</div>
-<div class="right">
+<div class="left-side-buttons">
 	<a href="../function/calendar">
 		<button class="menu_box2 myschedule">내 일정</button>
 	</a>
@@ -156,12 +156,13 @@ body {
 	top: 155px;
 }
 
-.right {
+.left-side-buttons {
 	display: flex;
-	gap: 100px;
+	flex-direction: column;
+	gap: 20px;
 	position: absolute;
-	right: 112.5px;
-	top: 165px;
+	left: 112.5px;
+	top: 250px;
 }
 
 .modify_btn {
