@@ -11,21 +11,15 @@
 <c:set var="loggedInMemberId" value="${rq.loginedMember.loginId}"></c:set>
 
 <div class="menu_box1 left">
-	<div class="mypage">마이 페이지</div>
+	<div class="mypage">내 정보</div>
 	</div>
 	<div>내 일정</div>
-<div class="left-side-buttons">
+<div class="right">
 	<a href="../function/calendar">
 		<button class="menu_box2 myschedule">내 일정</button>
 	</a>
 	<a href="../member/myInfo">
 		<button class="menu_box2 myinfo">내 정보</button>
-	</a>
-	<a href="../member/img">
-		<button class="menu_box2 myschedule">내 그림</button>
-	</a>
-	<a href="../member/myInfo">
-		<button class="menu_box2 myinfo">심리테스트 결과</button>
 	</a>
 </div>
 
@@ -162,13 +156,12 @@ body {
 	top: 155px;
 }
 
-.left-side-buttons {
+.right {
 	display: flex;
-	flex-direction: column;
-	gap: 20px;
+	gap: 100px;
 	position: absolute;
-	left: 112.5px;
-	top: 250px;
+	right: 112.5px;
+	top: 165px;
 }
 
 .modify_btn {
